@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import eventsImage from "@/assets/events-banquet.jpg";
+import eventsImage from "@/assets/events-banquet.png";
 
 const SectionHeader = () => {
   const ref = useRef(null);
@@ -53,15 +53,15 @@ const TimelineItem = ({ time, label, delay, isInView }: TimelineItemProps) => (
         width: "11px",
         height: "11px",
         borderRadius: "50%",
-        border: "1.5px solid rgba(74,124,89,0.7)",
-        background: "rgba(74,124,89,0.15)",
-        boxShadow: "0 0 6px rgba(74,124,89,0.3)",
+        border: "1.5px solid rgba(168,197,160,0.7)",
+        background: "rgba(168,197,160,0.2)",
+        boxShadow: "0 0 6px rgba(168,197,160,0.3)",
       }}
     />
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#4A7C59", minWidth: "70px" }}>
+    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#A8C5A0", minWidth: "70px" }}>
       {time}
     </span>
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(45,45,45,0.75)" }}>
+    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,248,244,0.8)" }}>
       {label}
     </span>
   </motion.div>
@@ -72,31 +72,31 @@ interface PillProps {
 }
 
 const GlassPill = ({ text }: PillProps) => (
-  <div
-    className="flex items-center gap-2"
-    style={{
-      padding: "6px 14px",
-      borderRadius: "40px",
-      background: "rgba(74,124,89,0.08)",
-      backdropFilter: "blur(8px)",
-      WebkitBackdropFilter: "blur(8px)",
-      border: "0.5px solid rgba(74,124,89,0.2)",
-    }}
-  >
     <div
+      className="flex items-center gap-2"
       style={{
-        width: "8px",
-        height: "8px",
-        borderRadius: "50%",
-        background: "linear-gradient(135deg, #4A7C59, #6BA368)",
-        boxShadow: "0 0 4px rgba(74,124,89,0.4)",
-        flexShrink: 0,
+        padding: "6px 14px",
+        borderRadius: "40px",
+        background: "rgba(255,255,255,0.1)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        border: "0.5px solid rgba(255,255,255,0.25)",
       }}
-    />
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#4A7C59" }}>
-      {text}
-    </span>
-  </div>
+    >
+      <div
+        style={{
+          width: "8px",
+          height: "8px",
+          borderRadius: "50%",
+          background: "linear-gradient(135deg, #A8C5A0, #6BA368)",
+          boxShadow: "0 0 4px rgba(168,197,160,0.5)",
+          flexShrink: 0,
+        }}
+      />
+      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "rgba(255,248,244,0.85)" }}>
+        {text}
+      </span>
+    </div>
 );
 
 /* Animated liquid glass blob */
@@ -141,50 +141,50 @@ const WaleemaBlock = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Light frosted overlay instead of dark */}
+      {/* Subtle gradient overlay — no blur so image stays sharp */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          background: "linear-gradient(to left, rgba(255,252,248,0.88) 40%, rgba(255,252,248,0.55) 65%, transparent 100%)",
-          backdropFilter: "blur(1px)",
+          background: "linear-gradient(to left, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.15) 60%, transparent 100%)",
         }}
       />
       <div
         className="absolute inset-0 md:hidden"
         style={{
-          background: "linear-gradient(to bottom, rgba(255,252,248,0.2) 0%, rgba(255,252,248,0.92) 35%)",
+          background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 40%)",
         }}
       />
 
-      {/* Liquid glass blobs */}
+      {/* Liquid glass blobs — lighter blur for dreamy glow */}
       <LiquidBlob
         style={{
-          width: "220px",
-          height: "220px",
-          background: "radial-gradient(circle, rgba(74,124,89,0.25) 0%, rgba(106,163,104,0.1) 70%, transparent 100%)",
-          top: "10%",
-          right: "5%",
+          width: "200px",
+          height: "200px",
+          background: "radial-gradient(circle, rgba(74,124,89,0.3) 0%, rgba(106,163,104,0.12) 60%, transparent 100%)",
+          filter: "blur(40px)",
+          top: "8%",
+          right: "8%",
         }}
       />
       <LiquidBlob
         className="hidden md:block"
         style={{
-          width: "180px",
-          height: "180px",
-          background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, rgba(201,168,76,0.05) 70%, transparent 100%)",
-          bottom: "15%",
-          right: "20%",
-          animationDelay: "2s",
+          width: "160px",
+          height: "160px",
+          background: "radial-gradient(circle, rgba(201,168,76,0.22) 0%, transparent 70%)",
+          filter: "blur(40px)",
+          bottom: "12%",
+          right: "22%",
         }}
       />
       <LiquidBlob
         style={{
-          width: "140px",
-          height: "140px",
-          background: "radial-gradient(circle, rgba(74,124,89,0.2) 0%, transparent 70%)",
-          top: "50%",
-          right: "35%",
-          animationDelay: "4s",
+          width: "120px",
+          height: "120px",
+          background: "radial-gradient(circle, rgba(74,124,89,0.25) 0%, transparent 70%)",
+          filter: "blur(35px)",
+          top: "55%",
+          right: "38%",
         }}
       />
 
@@ -198,12 +198,12 @@ const WaleemaBlock = () => {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            background: "rgba(255,255,255,0.45)",
-            backdropFilter: "blur(24px) saturate(1.4)",
-            WebkitBackdropFilter: "blur(24px) saturate(1.4)",
-            borderRadius: "24px",
-            border: "1px solid rgba(255,255,255,0.6)",
-            boxShadow: "0 8px 40px rgba(74,124,89,0.08), inset 0 1px 0 rgba(255,255,255,0.7), 0 1px 3px rgba(0,0,0,0.04)",
+            background: "rgba(255,255,255,0.12)",
+            backdropFilter: "blur(40px) saturate(1.8) brightness(1.1)",
+            WebkitBackdropFilter: "blur(40px) saturate(1.8) brightness(1.1)",
+            borderRadius: "28px",
+            border: "1px solid rgba(255,255,255,0.35)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(255,255,255,0.1), 0 0 0 0.5px rgba(255,255,255,0.2)",
             padding: "32px 28px",
             position: "relative",
             overflow: "hidden",
@@ -217,12 +217,12 @@ const WaleemaBlock = () => {
               left: "-20%",
               width: "140%",
               height: "60%",
-              background: "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 50%)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)",
               borderRadius: "50%",
             }}
             animate={{
-              opacity: [0.3, 0.5, 0.3],
-              rotate: [0, 3, 0],
+              opacity: [0.2, 0.35, 0.2],
+              rotate: [0, 2, 0],
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -232,7 +232,7 @@ const WaleemaBlock = () => {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "10px",
-              color: "#4A7C59",
+              color: "#A8C5A0",
               letterSpacing: "0.22em",
               marginBottom: "12px",
             }}
@@ -244,7 +244,7 @@ const WaleemaBlock = () => {
             className="text-[32px] md:text-[40px] relative z-10"
             style={{
               fontFamily: "'Playfair Display', serif",
-              color: "#2D4A3E",
+              color: "#FFF8F4",
               fontWeight: 400,
               lineHeight: 1.15,
               marginBottom: "16px",
@@ -259,7 +259,7 @@ const WaleemaBlock = () => {
               fontFamily: "'Cormorant Garamond', serif",
               fontStyle: "italic",
               fontSize: "17px",
-              color: "rgba(45,74,62,0.7)",
+              color: "rgba(255,248,244,0.7)",
               maxWidth: "300px",
               marginBottom: "28px",
               lineHeight: 1.5,
@@ -274,7 +274,7 @@ const WaleemaBlock = () => {
           </div>
 
           <div className="relative flex flex-col gap-4 z-10" style={{ paddingLeft: "5px" }}>
-            <div className="absolute" style={{ left: "5px", top: "6px", bottom: "6px", width: "0.5px", background: "rgba(74,124,89,0.2)" }} />
+            <div className="absolute" style={{ left: "5px", top: "6px", bottom: "6px", width: "0.5px", background: "rgba(168,197,160,0.3)" }} />
             <TimelineItem time="07:00 PM" label="Doors open & welcome" delay={0} isInView={isInView} />
             <TimelineItem time="08:00 PM" label="Dinner & celebrations" delay={0.15} isInView={isInView} />
             <TimelineItem time="09:00 PM" label="Blessings & festivities" delay={0.3} isInView={isInView} />
@@ -293,9 +293,9 @@ const WaleemaBlock = () => {
                 width: "18px",
                 height: "18px",
                 borderRadius: "6px",
-                background: "rgba(74,124,89,0.08)",
+                background: "rgba(255,255,255,0.1)",
                 backdropFilter: "blur(4px)",
-                border: "0.5px solid rgba(74,124,89,0.15)",
+                border: "0.5px solid rgba(255,255,255,0.2)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -304,8 +304,8 @@ const WaleemaBlock = () => {
               <span style={{ fontSize: "10px" }}>✨</span>
             </div>
             <div>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#4A7C59", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "rgba(45,74,62,0.6)", lineHeight: 1.5, maxWidth: "280px" }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#A8C5A0", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "rgba(255,248,244,0.6)", lineHeight: 1.5, maxWidth: "280px" }}>
                 Formal & festive — dress to celebrate ✦
               </p>
             </div>
