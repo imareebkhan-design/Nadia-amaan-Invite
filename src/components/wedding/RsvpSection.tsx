@@ -45,7 +45,7 @@ const RsvpSection = () => {
         name: form.name.trim().slice(0, 100),
         phone: form.phone.trim().slice(0, 20),
         guest_count: Math.min(Math.max(1, form.guest_count), 6),
-        
+        events_attending: ['Waleema & Dinner (17th May, 7 PM)'],
         dietary_preference: form.dietary_preference,
         message: form.message.trim().slice(0, 500),
       });
@@ -71,7 +71,7 @@ const RsvpSection = () => {
           <span className="text-6xl block">🌸</span>
           <h3 className="font-display text-3xl" style={{ color: '#E06B82' }}>Thank you!</h3>
           <p className="font-sub italic text-lg" style={{ color: '#4A7C59' }}>
-            Noted, loved, and now slightly more excited than we were five minutes ago. 🌸
+            JazakAllah Khair — we look forward to celebrating with you! 🌸
           </p>
         </div>
       </motion.section>
@@ -100,13 +100,17 @@ const RsvpSection = () => {
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
       >
-        <motion.h2
-          variants={staggerItem}
-          className="font-sub text-[36px] sm:text-[48px]"
-          style={{ color: '#4A7C59', fontWeight: 400 }}
-        >
-          RSVP
-        </motion.h2>
+        <motion.div variants={staggerItem} className="space-y-2">
+          <h2
+            className="font-sub text-[36px] sm:text-[48px]"
+            style={{ color: '#4A7C59', fontWeight: 400 }}
+          >
+            Kindly Respond
+          </h2>
+          <p className="font-body text-sm" style={{ color: '#999' }}>
+            Kindly respond by 10th May 2026
+          </p>
+        </motion.div>
 
         <motion.div
           variants={staggerItem}
@@ -178,6 +182,29 @@ const RsvpSection = () => {
               </select>
             </div>
 
+            {/* Attending event */}
+            <div className="space-y-2">
+              <label className="font-body text-[10px] tracking-[0.3em] uppercase block" style={{ color: '#C9A84C' }}>
+                Attending
+              </label>
+              <div className="flex items-center gap-3 px-1">
+                <div
+                  className="flex items-center gap-2 py-2 px-3 rounded-lg"
+                  style={{
+                    border: '1px solid rgba(74,124,89,0.3)',
+                    background: 'rgba(74,124,89,0.05)',
+                  }}
+                >
+                  <div
+                    className="w-3 h-3 rounded-sm"
+                    style={{ background: '#4A7C59' }}
+                  />
+                  <span className="font-body text-sm" style={{ color: '#4A7C59' }}>
+                    Waleema & Dinner (17th May, 7 PM)
+                  </span>
+                </div>
+              </div>
+            </div>
 
             {/* Will you attend? */}
             <div className="space-y-2">
@@ -265,7 +292,7 @@ const RsvpSection = () => {
                 <line x1="22" y1="2" x2="11" y2="13" />
                 <polygon points="22 2 15 22 11 13 2 9 22 2" />
               </svg>
-              {status === 'submitting' ? 'Sending...' : 'Confirm RSVP'}
+              {status === 'submitting' ? 'Sending...' : 'Send with Duas 🤲'}
             </button>
           </form>
         </motion.div>

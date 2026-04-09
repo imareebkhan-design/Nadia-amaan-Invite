@@ -23,13 +23,31 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
+        {/* Bismillah */}
+        <motion.p
+          variants={{ hidden: { opacity: 0, y: 20, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
+          className="font-display text-[18px]"
+          style={{ color: '#4A7C59', letterSpacing: '0.05em', marginBottom: '16px', textAlign: 'center' }}
+        >
+          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
+        </motion.p>
+
+        {/* English translation */}
+        <motion.p
+          variants={{ hidden: { opacity: 0, y: 15, filter: 'blur(4px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } } }}
+          className="font-body uppercase"
+          style={{ fontSize: '11px', color: '#999', letterSpacing: '0.15em', textAlign: 'center', marginBottom: '24px' }}
+        >
+          In the Name of Allah, the Most Beneficent, the Most Merciful
+        </motion.p>
+
         {/* Invite line */}
         <motion.p
           variants={{ hidden: { opacity: 0, y: 20, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
           className="font-body text-[12px] sm:text-[13px] uppercase tracking-[0.35em]"
           style={{ color: '#C9A84C' }}
         >
-          You are invited to the Reception & Dinner
+          You are invited to the Waleema
         </motion.p>
 
         {/* Gold divider with diamond */}
@@ -49,11 +67,11 @@ const HeroSection = () => {
           className="flex flex-col items-center -space-y-2 sm:-space-y-4 mt-8"
         >
           <h1 className="font-display text-[64px] sm:text-[100px]" style={{ color: '#E06B82', lineHeight: 1.05 }}>
-            <NameLetterStagger name="Ramya" />
+            <NameLetterStagger name="Amaan" />
           </h1>
           <span className="font-display text-3xl sm:text-4xl" style={{ color: '#E06B82', opacity: 0.5 }}>&amp;</span>
           <h1 className="font-display text-[64px] sm:text-[100px]" style={{ color: '#E06B82', lineHeight: 1.05 }}>
-            <NameLetterStagger name="Kishan" />
+            <NameLetterStagger name="Nadia" />
           </h1>
         </motion.div>
 
@@ -76,7 +94,7 @@ const HeroSection = () => {
           className="font-sub text-[12px] sm:text-[14px] tracking-[0.2em] sm:tracking-[0.3em] uppercase mt-5"
           style={{ color: 'rgba(74,124,89,0.6)' }}
         >
-          Request the pleasure of your company
+          Waleema — Wedding Reception
         </motion.p>
 
         {/* Date */}
@@ -85,14 +103,14 @@ const HeroSection = () => {
           className="font-display font-medium tracking-[0.25em] mt-8 text-[24px] sm:text-[36px]"
           style={{ color: '#4A7C59' }}
         >
-          09 · May · 2026
+          17 · May · 2026
         </motion.p>
         <motion.p
           variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } } }}
           className="font-body text-[13px] sm:text-[15px] mt-2"
           style={{ fontWeight: 300, color: '#999' }}
         >
-          05:00 PM · Mayflower Farmhouse, Bengaluru
+          7:00 PM · L'Elegant Banquet Hall, Delhi
         </motion.p>
 
         {/* Venue */}
@@ -101,7 +119,7 @@ const HeroSection = () => {
           className="font-sub text-[24px] sm:text-[32px] mt-5"
           style={{ color: '#4A7C59', fontWeight: 300 }}
         >
-          Mayflower Farmhouse
+          L'Elegant Banquet Hall
         </motion.h3>
 
         {/* Bottom divider */}

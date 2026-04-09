@@ -52,7 +52,7 @@ const CoupleSection = () => {
           className="text-[10px] md:text-sm tracking-[0.3em] md:tracking-[0.35em] uppercase mb-2 md:mb-3"
           style={{ color: '#C9A84C' }}
         >
-          Ramya &amp; Kishan
+          Amaan &amp; Nadia
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ const CoupleSection = () => {
           className="font-display text-2xl md:text-4xl lg:text-5xl"
           style={{ color: '#4A7C59' }}
         >
-          Together with their families &amp; friends
+          A Union Blessed
         </motion.h2>
         <motion.div
           initial={{ opacity: 0 }}
@@ -129,8 +129,9 @@ const CoupleSection = () => {
           >
             <motion.img
               src={couplePhoto}
-              alt="Ramya and Kishan"
-              className="w-full aspect-[3/2] object-cover"
+              alt="Amaan and Nadia"
+              className="w-full object-cover"
+              style={{ height: '320px', objectPosition: 'center top', borderRadius: '12px' }}
               loading="lazy"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -159,8 +160,8 @@ const CoupleSection = () => {
       {/* Couple names */}
       <div className="max-w-4xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-8 md:gap-16">
         {[
-          { name: 'Ramya', align: 'md:text-right', x: -40, delay: 0.4 },
-          { name: 'Kishan', align: 'md:text-left', x: 40, delay: 0.5 },
+          { name: 'Amaan', align: 'md:text-right', x: -40, delay: 0.4 },
+          { name: 'Nadia', align: 'md:text-left', x: 40, delay: 0.5 },
         ].map((person, idx) => (
           <motion.div
             key={person.name}
@@ -188,7 +189,7 @@ const CoupleSection = () => {
         ))}
       </div>
 
-      {/* Love story */}
+      {/* Story */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -196,16 +197,16 @@ const CoupleSection = () => {
         className="max-w-2xl mx-auto mt-12 md:mt-16 px-6 text-center"
       >
         <h3 className="font-sub text-lg md:text-2xl mb-4 md:mb-6" style={{ color: '#4A7C59' }}>
-          How We Met
+          A Union Blessed
         </h3>
         <p className="font-body text-sm md:text-base leading-relaxed" style={{ color: '#888' }}>
-          We met at work in Bangalore, starting with casual coffee breaks during early days. What felt ordinary at first quickly became something we both looked forward to.
+          Mr. Afzal Mustafa & Mrs. Abida Afzal cordially invite you to the Waleema — Wedding Reception of their beloved son Amaan Afzal.
         </p>
         <p className="font-body text-sm md:text-base leading-relaxed mt-4" style={{ color: '#888' }}>
-          She found me charming, I found her effortlessly kind. There was an easy, happy rhythm between us, like two people who just clicked without trying too hard.
+          Grandson of Late Mr. AS Mustafa & Late Mrs. Zubaida Mustafa.
         </p>
         <p className="font-body text-sm md:text-base leading-relaxed mt-4" style={{ color: '#888' }}>
-          Somewhere between those small conversations and shared moments, and cooking for each other, we realized we have loved each other all along the way.
+          Together with Nadia Fatima, daughter of Late Mr. Mohd. Sulaiman Khan & Mrs. Naseem Bano — two families, one beautiful beginning.
         </p>
       </motion.div>
 
