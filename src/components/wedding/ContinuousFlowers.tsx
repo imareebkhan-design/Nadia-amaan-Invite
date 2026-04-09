@@ -19,13 +19,12 @@ const CENTER_GOLD_DEEP = '#EDDA9A';
 
 /* ── Grand entrance: flowers bloom in with staggered delay ── */
 const bloomIn = (delay: number) => ({
-  initial: { opacity: 0, scale: 0, filter: 'blur(8px)' },
-  whileInView: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+  initial: { opacity: 0, scale: 0 },
+  whileInView: { opacity: 1, scale: 1 },
   viewport: { once: true, margin: '200px' } as const,
   transition: {
     opacity: { duration: 1.8, delay, ease: [0.22, 1, 0.36, 1] },
     scale: { duration: 2.2, delay, ease: [0.22, 1, 0.36, 1] },
-    filter: { duration: 2, delay, ease: 'easeOut' },
   },
 });
 
