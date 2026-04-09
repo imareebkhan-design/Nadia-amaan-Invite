@@ -24,7 +24,7 @@ const HeroSection = () => {
 
         {/* Invite line */}
         <motion.p
-          variants={{ hidden: { opacity: 0, y: 20, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
+          variants={{ hidden: { opacity: 0, y: 20, }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
           className="font-body text-[12px] sm:text-[13px] uppercase tracking-[0.35em]"
           style={{ color: '#C9A84C' }}
         >
@@ -44,7 +44,7 @@ const HeroSection = () => {
 
         {/* Names */}
         <motion.div
-          variants={{ hidden: { opacity: 0, y: 40, filter: 'blur(8px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.2, ease: 'easeOut' } } }}
+          variants={{ hidden: { opacity: 0, y: 40, }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.2, ease: 'easeOut' } } }}
           className="flex flex-col items-center -space-y-2 sm:-space-y-4 mt-8"
         >
           <h1 className="font-display text-[64px] sm:text-[100px]" style={{ color: '#E06B82', lineHeight: 1.05 }}>
@@ -70,7 +70,7 @@ const HeroSection = () => {
 
         {/* Request text */}
         <motion.p
-          variants={{ hidden: { opacity: 0, y: 15, filter: 'blur(4px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } } }}
+          variants={{ hidden: { opacity: 0, y: 15, }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } } }}
           className="font-sub text-[12px] sm:text-[14px] tracking-[0.2em] sm:tracking-[0.3em] uppercase mt-5"
           style={{ color: 'rgba(74,124,89,0.6)' }}
         >
@@ -79,7 +79,7 @@ const HeroSection = () => {
 
         {/* Date */}
         <motion.p
-          variants={{ hidden: { opacity: 0, y: 20, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
+          variants={{ hidden: { opacity: 0, y: 20, }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
           className="font-display font-medium tracking-[0.25em] mt-8 text-[24px] sm:text-[36px]"
           style={{ color: '#4A7C59' }}
         >
@@ -95,7 +95,7 @@ const HeroSection = () => {
 
         {/* Venue */}
         <motion.h3
-          variants={{ hidden: { opacity: 0, y: 20, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
+          variants={{ hidden: { opacity: 0, y: 20, }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
           className="font-sub text-[24px] sm:text-[32px] mt-5"
           style={{ color: '#4A7C59', fontWeight: 300 }}
         >
