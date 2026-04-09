@@ -32,14 +32,14 @@ const CoupleSection = () => {
 
       {/* Flowing invitation text */}
       <div className="flex flex-col items-center" style={{ maxWidth: 380 }}>
-        <p className="font-sub italic text-[15px] text-center" style={{ color: '#888', lineHeight: 1.8 }}>
+        <p className="font-sub italic text-[15px] text-center font-semibold" style={{ color: '#2D2D2D', lineHeight: 1.8 }}>
           Mr. Afzal Mustafa &amp; Mrs. Abida Afzal
         </p>
-        <p className="font-sub italic text-[13px] text-center" style={{ color: '#AAA', lineHeight: 1.7, marginTop: 4 }}>
+        <p className="font-sub italic text-[13px] text-center font-medium" style={{ color: '#3A3A3A', lineHeight: 1.7, marginTop: 4 }}>
           Grandson of Late Mr. A.S. Mustafa &amp; Late Mrs. Zubaida Mustafa
         </p>
 
-        <p className="font-sub italic text-[15px] text-center" style={{ color: '#888', lineHeight: 1.7, marginTop: 16 }}>
+        <p className="font-sub italic text-[15px] text-center font-semibold" style={{ color: '#2D2D2D', lineHeight: 1.7, marginTop: 16 }}>
           cordially invite you to the Waleema of their beloved son
         </p>
 
@@ -50,7 +50,7 @@ const CoupleSection = () => {
           Amaan
         </span>
 
-        <p className="font-sub italic text-[15px] text-center" style={{ color: '#888', marginTop: 12 }}>
+        <p className="font-sub italic text-[15px] text-center font-semibold" style={{ color: '#2D2D2D', marginTop: 12 }}>
           with
         </p>
 
@@ -58,7 +58,7 @@ const CoupleSection = () => {
         <span className="font-display text-[36px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em', marginTop: 4 }}>
           Nadia
         </span>
-        <p className="font-sub italic text-[13px] text-center" style={{ color: '#AAA', lineHeight: 1.7, marginTop: 6 }}>
+        <p className="font-sub italic text-[13px] text-center font-medium" style={{ color: '#3A3A3A', lineHeight: 1.7, marginTop: 6 }}>
           D/O Late Mr. Mohd. Sulaiman Khan &amp; Mrs. Naseem Bano
         </p>
 
