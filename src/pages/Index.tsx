@@ -30,14 +30,15 @@ const Index = () => {
     }
   });
 
+  // Hook always called (never conditional) — enabled flag controls behavior
+  useAutoScroll(envelopeOpened, 4000, 55);
+
   const handleEnvelopeOpen = useCallback(() => {
     setEnvelopeOpened(true);
     try {
       sessionStorage.setItem(SEAL_OPENED_KEY, "true");
     } catch {}
   }, []);
-
-  useAutoScroll(envelopeOpened, 4000, 55);
 
   return (
     <main className="scroll-smooth">
