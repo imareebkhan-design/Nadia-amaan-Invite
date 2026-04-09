@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, ExternalLink } from "lucide-react";
+import venuePhoto from "@/assets/venue-photo.webp";
 
 
 const VenueSection = () => {
