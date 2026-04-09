@@ -20,6 +20,7 @@ const SEAL_OPENED_KEY = "wedding_seal_opened";
 
 const Index = () => {
   const [searchParams] = useSearchParams();
+  useAutoScroll(false); // moved below after state init
   const guestName = useMemo(() => searchParams.get('guest') || undefined, [searchParams]);
 
   const [envelopeOpened, setEnvelopeOpened] = useState(() => {
