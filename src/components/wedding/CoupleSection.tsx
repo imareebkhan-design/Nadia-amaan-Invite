@@ -72,69 +72,17 @@ const CoupleSection = () => {
         In the Name of Allah, the Most Beneficent, the Most Merciful
       </p>
 
-      {/* Photo frame */}
-      <div
-        style={{
-          width: '100%',
-          maxWidth: 420,
-          padding: 10,
-          background: 'white',
-          borderRadius: 20,
-          boxShadow: '0 2px 0 #F4A7B4, 0 4px 0 rgba(244,167,180,0.4), 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)',
-          position: 'relative' as const,
-          margin: '0 auto',
-        }}
-      >
-        {/* Top-left floral */}
-        <div style={{ position: 'absolute', top: -18, left: -18, pointerEvents: 'none' as const }}>
-          <PeonyFloral />
-        </div>
-        {/* Bottom-right floral */}
-        <div style={{ position: 'absolute', bottom: -18, right: -18, pointerEvents: 'none' as const }}>
-          <PeonyFloral mirror />
-        </div>
-
-        {/* Inner photo */}
-        <div style={{ width: '100%', height: 390, borderRadius: 13, overflow: 'hidden', position: 'relative' as const }}>
-          <img
-            src={couplePhoto}
-            alt="Amaan & Nadia"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: '50% 34%',
-              display: 'block',
-              transform: 'scale(1.03)',
-            }}
-            loading="lazy"
-          />
-          {/* Bottom gradient overlay */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              height: 72,
-              background: 'linear-gradient(to top, rgba(255,248,244,0.42), transparent)',
-              borderRadius: '0 0 13px 13px',
-            }}
-          />
-        </div>
-
-        {/* Names row */}
-        <div className="flex items-center justify-center" style={{ padding: '16px 20px 8px' }}>
-          <span className="font-display text-[28px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em' }}>
-            Amaan
-          </span>
-          <span className="font-sub italic text-[22px]" style={{ color: '#4A7C59', margin: '0 12px', marginTop: -2 }}>
-            &amp;
-          </span>
-          <span className="font-display text-[28px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em' }}>
-            Nadia
-          </span>
-        </div>
+      {/* Names */}
+      <div className="flex items-center justify-center mb-2">
+        <span className="font-display text-[32px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em' }}>
+          Amaan
+        </span>
+        <span className="font-sub italic text-[24px]" style={{ color: '#4A7C59', margin: '0 14px', marginTop: -2 }}>
+          &amp;
+        </span>
+        <span className="font-display text-[32px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em' }}>
+          Nadia
+        </span>
       </div>
 
       {/* Story / Lineage block */}
