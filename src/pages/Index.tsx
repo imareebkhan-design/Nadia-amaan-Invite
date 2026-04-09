@@ -67,7 +67,7 @@ const Index = () => {
           <div className="relative z-[1]"><SectionDivider variant="light" /></div>
           <div className="relative z-[1]"><VenueSection /></div>
           <div className="relative z-[1]"><SectionDivider variant="light" /></div>
-          <div id="rsvp" className="relative z-[1]"><RsvpSection /></div>
+          <div id="blessings" className="relative z-[1]"><BlessingsSection /></div>
           <div className="relative z-[1]"><ThankYouSection /></div>
         </div>
         </motion.div>
