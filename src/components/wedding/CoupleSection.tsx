@@ -1,4 +1,4 @@
-import couplePhoto from '@/assets/couple-photo.jpeg';
+
 
 const SmallDivider = () => (
   <div className="flex items-center justify-center gap-2" style={{ margin: '4px 0 20px' }}>
