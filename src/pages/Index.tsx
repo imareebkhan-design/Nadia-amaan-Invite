@@ -31,7 +31,7 @@ const Index = () => {
   });
 
   // Hook always called (never conditional) — enabled flag controls behavior
-  useAutoScroll(envelopeOpened, 4000, 55);
+  useAutoScroll(envelopeOpened, 4000, 44);
 
   const handleEnvelopeOpen = useCallback(() => {
     setEnvelopeOpened(true);

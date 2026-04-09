@@ -143,7 +143,7 @@ const VenueSection = () => {
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "17px",
-                color: "#2D2D2D",
+                color: "#4A7C59",
                 lineHeight: 1.5,
               }}
             >
@@ -187,7 +187,7 @@ const VenueSection = () => {
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "17px",
-                color: "#2D2D2D",
+                color: "#4A7C59",
                 lineHeight: 1.5,
               }}
             >
@@ -228,7 +228,7 @@ const VenueSection = () => {
 
         {/* Get Directions */}
         <a
-          href="https://share.google/3a8JpXaaGKD8WNKhF"
+          href="https://maps.app.goo.gl/PLHwt4jqae7HLBtv7?g_st=ic"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center no-underline"
