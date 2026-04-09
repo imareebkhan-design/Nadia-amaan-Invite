@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 interface EnvelopeSectionProps {
   onOpen: () => void;
+  guestName?: string;
 }
 
 /* ── Tiny botanical SVG leaves for corners ── */
@@ -49,9 +50,10 @@ const FloatingPetal = ({ delay, x, size }: { delay: number; x: number; size: num
 
 const CONFETTI_COLORS = ['#F4A7B4','#E06B82','#F5D97A','#4A7C59','#A8C5A0','#C8CFC0','#F08040'];
 
-const EnvelopeSection = ({ onOpen }: EnvelopeSectionProps) => {
+const EnvelopeSection = ({ onOpen, guestName }: EnvelopeSectionProps) => {
   const [stage, setStage] = useState<"sealed" | "breaking" | "opening" | "rising" | "done">("sealed");
   const isMobile = useIsMobile();
+  const inviteText = useMemo(() => guestName ? `Dear ${guestName}, you are invited` : 'You have been invited', [guestName]);
 
   const handleSealClick = () => {
     if (stage !== "sealed") return;
@@ -127,7 +129,7 @@ const EnvelopeSection = ({ onOpen }: EnvelopeSectionProps) => {
               className="text-[10px] md:text-xs tracking-[0.3em] uppercase mb-2"
               style={{ color: '#4A7C59', opacity: 0.5, fontFamily: "'DM Sans', sans-serif" }}
             >
-              You have been invited
+              {inviteText}
             </p>
             <div className="flex items-center gap-2">
               <div className="w-8 md:w-12 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(224,107,130,0.3))' }} />
