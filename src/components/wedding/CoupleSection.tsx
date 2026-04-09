@@ -131,7 +131,7 @@ const CoupleSection = () => {
               src={couplePhoto}
               alt="Amaan and Nadia"
               className="w-full object-cover"
-              style={{ height: '320px', objectPosition: 'center top', borderRadius: '12px' }}
+              style={{ height: 'auto', maxHeight: '520px', objectPosition: 'center center', borderRadius: '12px' }}
               loading="lazy"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
