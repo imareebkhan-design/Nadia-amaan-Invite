@@ -95,11 +95,18 @@ const CoupleSection = () => {
         </div>
 
         {/* Inner photo */}
-        <div style={{ width: '100%', height: 340, borderRadius: 13, overflow: 'hidden', position: 'relative' as const }}>
+        <div style={{ width: '100%', height: 390, borderRadius: 13, overflow: 'hidden', position: 'relative' as const }}>
           <img
             src={couplePhoto}
             alt="Amaan & Nadia"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: '50% 34%',
+              display: 'block',
+              transform: 'scale(1.03)',
+            }}
             loading="lazy"
           />
           {/* Bottom gradient overlay */}
@@ -109,8 +116,8 @@ const CoupleSection = () => {
               bottom: 0,
               left: 0,
               right: 0,
-              height: 100,
-              background: 'linear-gradient(to top, rgba(255,248,244,0.6), transparent)',
+              height: 72,
+              background: 'linear-gradient(to top, rgba(255,248,244,0.42), transparent)',
               borderRadius: '0 0 13px 13px',
             }}
           />
