@@ -1,5 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 import EnvelopeSection from '@/components/wedding/EnvelopeSection';
 import HeroSection from '@/components/wedding/HeroSection';
 import CountdownSection from '@/components/wedding/CountdownSection';
@@ -9,6 +10,7 @@ import VenueSection from '@/components/wedding/VenueSection';
 import RsvpSection from '@/components/wedding/RsvpSection';
 import ThankYouSection from '@/components/wedding/ThankYouSection';
 import MusicToggle from '@/components/wedding/MusicToggle';
+import FloatingNav from '@/components/wedding/FloatingNav';
 
 import SectionDivider from '@/components/wedding/SectionDivider';
 import ContinuousFlowers from '@/components/wedding/ContinuousFlowers';
@@ -16,6 +18,9 @@ import ContinuousFlowers from '@/components/wedding/ContinuousFlowers';
 const SEAL_OPENED_KEY = "wedding_seal_opened";
 
 const Index = () => {
+  const [searchParams] = useSearchParams();
+  const guestName = useMemo(() => searchParams.get('guest') || undefined, [searchParams]);
+
   const [envelopeOpened, setEnvelopeOpened] = useState(() => {
     try {
       return sessionStorage.getItem(SEAL_OPENED_KEY) === "true";
@@ -35,7 +40,7 @@ const Index = () => {
     <main className="scroll-smooth">
       <AnimatePresence mode="wait">
         {!envelopeOpened && (
-          <EnvelopeSection key="envelope" onOpen={handleEnvelopeOpen} />
+          <EnvelopeSection key="envelope" onOpen={handleEnvelopeOpen} guestName={guestName} />
         )}
       </AnimatePresence>
 
@@ -47,6 +52,7 @@ const Index = () => {
         >
         <div className="relative" style={{ backgroundColor: 'hsl(var(--wedding-cream))' }}>
           <ContinuousFlowers />
+          <FloatingNav />
           
           <MusicToggle autoStart={true} />
           <div id="hero" className="relative z-[1]"><HeroSection /></div>
