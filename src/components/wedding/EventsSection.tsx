@@ -153,44 +153,6 @@ const Pill = ({ text, bg, border, color, dotColor }: PillProps) => (
   </div>
 );
 
-const FloatingDateCard = () => (
-  <div
-    className="absolute right-12 bottom-12 z-[2] hidden md:block"
-    style={{
-      background: "rgba(255,248,244,0.06)",
-      border: "0.5px solid rgba(255,248,244,0.15)",
-      borderRadius: "16px",
-      padding: "24px 28px",
-      textAlign: "center",
-    }}
-  >
-    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#C9A84C", letterSpacing: "0.2em", marginBottom: "8px" }}>SUNDAY</p>
-    <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "48px", color: "#FFF8F4", lineHeight: 1, marginBottom: "6px" }}>17</p>
-    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,248,244,0.6)", letterSpacing: "0.15em", marginBottom: "14px" }}>MAY 2026</p>
-    <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "22px", color: "#F4A7B4" }}>7 PM</p>
-  </div>
-);
-
-const MobileDateCard = () => (
-  <div
-    className="md:hidden"
-    style={{
-      background: "rgba(255,248,244,0.06)",
-      border: "0.5px solid rgba(255,248,244,0.15)",
-      borderRadius: "16px",
-      padding: "24px 28px",
-      textAlign: "center",
-      margin: "24px auto 0",
-      width: "fit-content",
-    }}
-  >
-    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#C9A84C", letterSpacing: "0.2em", marginBottom: "8px" }}>SUNDAY</p>
-    <p style={{ fontFamily: "'Playfair Display', serif", fontSize: "48px", color: "#FFF8F4", lineHeight: 1, marginBottom: "6px" }}>17</p>
-    <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,248,244,0.6)", letterSpacing: "0.15em", marginBottom: "14px" }}>MAY 2026</p>
-    <p style={{ fontFamily: "'Playfair Display', serif", fontStyle: "italic", fontSize: "22px", color: "#F4A7B4" }}>7 PM</p>
-  </div>
-);
-
 const WaleemaBlock = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
@@ -201,127 +163,76 @@ const WaleemaBlock = () => {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative w-full overflow-hidden flex items-center"
-      style={{ minHeight: "600px" }}
+      className="relative w-full overflow-hidden"
+      style={{ minHeight: "560px" }}
     >
-      {/* Background image */}
       <img
         src={eventsImage}
         alt="Elegant banquet hall"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Overlay 1 — directional (desktop) */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          background: "linear-gradient(to right, rgba(15,30,20,0.97) 0%, rgba(15,30,20,0.85) 45%, rgba(15,30,20,0.3) 75%, transparent 100%)",
+          background: "linear-gradient(to left, rgba(20,35,25,0.95) 42%, rgba(20,35,25,0.55) 70%, transparent 100%)",
         }}
       />
-      {/* Overlay 1 — mobile */}
       <div
         className="absolute inset-0 md:hidden"
         style={{
-          background: "linear-gradient(to bottom, rgba(15,30,20,0.3) 0%, rgba(15,30,20,0.95) 40%)",
+          background: "linear-gradient(to bottom, rgba(20,35,25,0.3) 0%, rgba(20,35,25,0.92) 40%)",
         }}
       />
 
-      {/* Overlay 2 — bottom vignette */}
       <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to top, rgba(15,30,20,0.6) 0%, transparent 40%)",
-        }}
-      />
-
-      {/* Pattern overlay */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          opacity: 0.04,
-          backgroundImage: "radial-gradient(circle, #C9A84C 1px, transparent 1px)",
-          backgroundSize: "24px 24px",
-        }}
-      />
-
-      {/* Floating date card — desktop */}
-      <FloatingDateCard />
-
-      {/* Content panel */}
-      <div
-        className="relative z-[2] w-full md:w-auto p-6 sm:p-8 md:p-16 pt-48 md:pt-16"
-        style={{ maxWidth: "560px" }}
+        className="relative md:absolute md:inset-y-0 md:right-0 flex flex-col justify-center w-full md:w-[52%] p-6 sm:p-8 md:p-10 pt-48 md:pt-10"
       >
-        {/* Bismillah */}
-        <p
-          dir="rtl"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontStyle: "italic",
-            fontSize: "13px",
-            color: "#C9A84C",
-            letterSpacing: "0.18em",
-            marginBottom: "20px",
-            opacity: 0.85,
-          }}
-        >
-          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-        </p>
-
-        {/* Event tag */}
         <p
           className="uppercase"
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: "10px",
-            fontWeight: 500,
             color: "#A8C5A0",
-            letterSpacing: "0.24em",
-            marginBottom: "14px",
+            letterSpacing: "0.22em",
+            marginBottom: "12px",
           }}
         >
           Waleema — Wedding Reception
         </p>
 
-        {/* Title */}
         <h3
+          className="text-[32px] md:text-[42px]"
           style={{
             fontFamily: "'Playfair Display', serif",
-            fontSize: "52px",
             color: "#FFF8F4",
             fontWeight: 400,
-            lineHeight: 1.1,
-            marginBottom: "18px",
+            lineHeight: 1.15,
+            marginBottom: "16px",
           }}
         >
-          An Evening<br />of <em style={{ fontStyle: "italic", color: "#F4A7B4" }}>Duas</em><br />&amp; Celebration
+          The<br />Celebration
         </h3>
 
-        {/* Description */}
         <p
           style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontStyle: "italic",
-            fontSize: "18px",
-            color: "rgba(255,248,244,0.65)",
-            lineHeight: 1.65,
-            marginBottom: "32px",
-            maxWidth: "340px",
+            fontSize: "17px",
+            color: "rgba(255,248,244,0.75)",
+            maxWidth: "300px",
+            marginBottom: "28px",
+            lineHeight: 1.5,
           }}
         >
-          Two families united in love, gratitude, and the blessings of Allah.
+          An evening of joy, gratitude, and celebration as two families come together in love and blessings.
         </p>
 
-        {/* Pills */}
-        <div className="flex flex-wrap gap-2.5 mb-8">
-          <Pill text="7:00 PM Onwards" bg="rgba(168,197,160,0.12)" border="rgba(168,197,160,0.4)" color="#A8C5A0" dotColor="#A8C5A0" />
-          <Pill text="L'Elegant Banquet Hall, Kalindi Kunj, Delhi" bg="rgba(168,197,160,0.12)" border="rgba(168,197,160,0.4)" color="#A8C5A0" dotColor="#A8C5A0" />
+        <div className="flex flex-wrap gap-2 mb-7">
+          <Pill text="7:00 PM Onwards" bg="rgba(168,197,160,0.15)" border="rgba(168,197,160,0.4)" color="#A8C5A0" dotColor="#A8C5A0" />
+          <Pill text="L'Elegant Banquet Hall, Kalindi Kunj, Delhi" bg="rgba(168,197,160,0.15)" border="rgba(168,197,160,0.4)" color="#A8C5A0" dotColor="#A8C5A0" />
         </div>
 
-        {/* Gold divider */}
-        <div style={{ width: "48px", height: "1px", background: "linear-gradient(to right, transparent, #C9A84C, transparent)", marginBottom: "28px" }} />
-
-        {/* Timeline */}
         <div className="relative flex flex-col gap-4" style={{ paddingLeft: "5px" }}>
           <div className="absolute" style={{ left: "5px", top: "6px", bottom: "6px", width: "0.5px", background: "rgba(168,197,160,0.3)" }} />
           <TimelineItem time="07:00 PM onwards" label="Doors open & welcome" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0} isInView={isInView} />
@@ -329,32 +240,23 @@ const WaleemaBlock = () => {
           <TimelineItem time="09:00 PM onwards" label="Blessings & festivities" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0.3} isInView={isInView} isLast />
         </div>
 
-        {/* Attire row — gold treatment */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-7 flex items-start gap-3"
-          style={{
-            padding: "12px 16px",
-            borderRadius: "12px",
-            background: "rgba(201,168,76,0.08)",
-            border: "0.5px solid rgba(201,168,76,0.25)",
-          }}
+          style={{ paddingLeft: "2px" }}
         >
-          <div className="shrink-0 mt-1" style={{ width: "18px", height: "18px", borderRadius: "4px", background: "rgba(201,168,76,0.15)", border: "0.5px solid rgba(201,168,76,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 0L6.12 3.88L10 5L6.12 6.12L5 10L3.88 6.12L0 5L3.88 3.88L5 0Z" fill="#C9A84C"/></svg>
+          <div className="shrink-0 mt-1" style={{ width: "18px", height: "18px", borderRadius: "4px", background: "rgba(168,197,160,0.12)", border: "0.5px solid rgba(168,197,160,0.3)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ fontSize: "10px" }}>✨</span>
           </div>
           <div>
-            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#C9A84C", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
-            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "15px", color: "rgba(255,248,244,0.8)", lineHeight: 1.5, maxWidth: "280px" }}>
-              Formal & festive — wear something that shimmers ✦
+            <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#A8C5A0", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
+            <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "rgba(255,248,244,0.65)", lineHeight: 1.5, maxWidth: "280px" }}>
+              Formal & festive — dress to celebrate ✦
             </p>
           </div>
         </motion.div>
-
-        {/* Mobile date card */}
-        <MobileDateCard />
       </div>
     </motion.div>
   );
