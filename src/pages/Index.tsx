@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
+import { useAutoScroll } from '@/hooks/useAutoScroll';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import EnvelopeSection from '@/components/wedding/EnvelopeSection';
