@@ -1,5 +1,3 @@
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
 import couplePhoto from '@/assets/couple-photo.jpeg';
 
 const SmallDivider = () => (
@@ -35,90 +33,47 @@ const PeonyFloral = ({ mirror = false }: { mirror?: boolean }) => (
 );
 
 const CoupleSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-60px' });
-
   return (
     <section
       id="couple"
-      ref={ref}
       className="relative flex flex-col items-center overflow-hidden"
       style={{ backgroundColor: '#FFF8F4', padding: '72px 24px 80px' }}
     >
       {/* Top ornament */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.6 }}
-        className="flex items-center gap-3 mb-8"
-      >
+      <div className="flex items-center gap-3 mb-8">
         <div style={{ width: 48, height: 0.5, background: '#E0C8B0' }} />
         <div style={{ width: 3, height: 3, background: '#E06B82', borderRadius: '50%' }} />
         <div style={{ width: 6, height: 6, background: '#C9A84C', transform: 'rotate(45deg)', flexShrink: 0 }} />
         <div style={{ width: 3, height: 3, background: '#E06B82', borderRadius: '50%' }} />
         <div style={{ width: 48, height: 0.5, background: '#E0C8B0' }} />
-      </motion.div>
+      </div>
 
       {/* Eyebrow */}
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.1 }}
-        style={{
-          fontFamily: "'DM Sans', sans-serif",
-          fontSize: 10,
-          fontWeight: 500,
-          letterSpacing: '0.22em',
-          color: '#C9A84C',
-          textAlign: 'center',
-          marginBottom: 10,
-        }}
+      <p
+        className="font-body text-[10px] font-medium uppercase text-center mb-2.5"
+        style={{ letterSpacing: '0.22em', color: '#C9A84C' }}
       >
         THE MUSTAFA FAMILY INVITES YOU
-      </motion.p>
+      </p>
 
       {/* Section title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 15 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.7, delay: 0.15 }}
-        style={{
-          fontFamily: "'Playfair Display', serif",
-          fontSize: 36,
-          fontWeight: 400,
-          color: '#2D2D2D',
-          textAlign: 'center',
-          marginBottom: 8,
-          lineHeight: 1.2,
-        }}
+      <h2
+        className="font-display text-4xl font-normal text-center mb-2"
+        style={{ color: '#2D2D2D', lineHeight: 1.2 }}
       >
         A Union Blessed
-      </motion.h2>
+      </h2>
 
       {/* Bismillah */}
-      <motion.p
-        initial={{ opacity: 0, y: 10 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6, delay: 0.25 }}
-        style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontStyle: 'italic',
-          fontSize: 15,
-          color: '#4A7C59',
-          textAlign: 'center',
-          letterSpacing: '0.06em',
-          marginBottom: 40,
-          opacity: 0.8,
-        }}
+      <p
+        className="font-sub italic text-[15px] text-center mb-10"
+        style={{ color: '#4A7C59', letterSpacing: '0.06em', opacity: 0.8 }}
       >
         In the Name of Allah, the Most Beneficent, the Most Merciful
-      </motion.p>
+      </p>
 
       {/* Photo frame */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 1, delay: 0.3 }}
+      <div
         style={{
           width: '100%',
           maxWidth: 420,
@@ -126,21 +81,21 @@ const CoupleSection = () => {
           background: 'white',
           borderRadius: 20,
           boxShadow: '0 2px 0 #F4A7B4, 0 4px 0 rgba(244,167,180,0.4), 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)',
-          position: 'relative',
+          position: 'relative' as const,
           margin: '0 auto',
         }}
       >
         {/* Top-left floral */}
-        <div style={{ position: 'absolute', top: -18, left: -18, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: -18, left: -18, pointerEvents: 'none' as const }}>
           <PeonyFloral />
         </div>
         {/* Bottom-right floral */}
-        <div style={{ position: 'absolute', bottom: -18, right: -18, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', bottom: -18, right: -18, pointerEvents: 'none' as const }}>
           <PeonyFloral mirror />
         </div>
 
         {/* Inner photo */}
-        <div style={{ width: '100%', height: 340, borderRadius: 13, overflow: 'hidden', position: 'relative' }}>
+        <div style={{ width: '100%', height: 340, borderRadius: 13, overflow: 'hidden', position: 'relative' as const }}>
           <img
             src={couplePhoto}
             alt="Amaan & Nadia"
@@ -163,36 +118,25 @@ const CoupleSection = () => {
 
         {/* Names row */}
         <div className="flex items-center justify-center" style={{ padding: '16px 20px 8px' }}>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 400, color: '#E06B82', letterSpacing: '0.02em' }}>
+          <span className="font-display text-[28px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em' }}>
             Amaan
           </span>
-          <span style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: 'italic', fontSize: 22, color: '#4A7C59', margin: '0 12px', marginTop: -2 }}>
+          <span className="font-sub italic text-[22px]" style={{ color: '#4A7C59', margin: '0 12px', marginTop: -2 }}>
             &amp;
           </span>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 28, fontWeight: 400, color: '#E06B82', letterSpacing: '0.02em' }}>
+          <span className="font-display text-[28px] font-normal" style={{ color: '#E06B82', letterSpacing: '0.02em' }}>
             Nadia
           </span>
         </div>
-      </motion.div>
+      </div>
 
       {/* Story / Lineage block */}
-      <motion.div
-        initial={{ opacity: 0, y: 25 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.5 }}
+      <div
         className="flex flex-col items-center"
         style={{ maxWidth: 400, marginTop: 36 }}
       >
         {/* Host paragraph */}
-        <p style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontStyle: 'italic',
-          fontSize: 15,
-          color: '#888',
-          textAlign: 'center',
-          lineHeight: 1.7,
-          marginBottom: 20,
-        }}>
+        <p className="font-sub italic text-[15px] text-center" style={{ color: '#888', lineHeight: 1.7, marginBottom: 20 }}>
           Mr. Afzal Mustafa &amp; Mrs. Abida Afzal<br />
           cordially invite you to the Waleema —<br />
           Wedding Reception of their beloved son
@@ -201,11 +145,11 @@ const CoupleSection = () => {
         <SmallDivider />
 
         {/* Groom lineage */}
-        <div style={{ textAlign: 'center', marginBottom: 20 }}>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: '#E06B82', fontWeight: 400, display: 'block', marginBottom: 4 }}>
+        <div className="text-center mb-5">
+          <span className="font-display text-[18px] font-normal block mb-1" style={{ color: '#E06B82' }}>
             Amaan Afzal
           </span>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#AAA', letterSpacing: '0.04em', lineHeight: 1.6 }}>
+          <span className="font-body text-[12px]" style={{ color: '#AAA', letterSpacing: '0.04em', lineHeight: 1.6 }}>
             Grandson of Late Mr. AS Mustafa<br />
             &amp; Late Mrs. Zubaida Mustafa
           </span>
@@ -214,29 +158,21 @@ const CoupleSection = () => {
         <SmallDivider />
 
         {/* Bride lineage */}
-        <div style={{ textAlign: 'center', marginBottom: 20 }}>
-          <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 18, color: '#E06B82', fontWeight: 400, display: 'block', marginBottom: 4 }}>
+        <div className="text-center mb-5">
+          <span className="font-display text-[18px] font-normal block mb-1" style={{ color: '#E06B82' }}>
             Nadia Fatima
           </span>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, color: '#AAA', letterSpacing: '0.04em', lineHeight: 1.6 }}>
+          <span className="font-body text-[12px]" style={{ color: '#AAA', letterSpacing: '0.04em', lineHeight: 1.6 }}>
             D/O Late Mr. Mohd. Sulaiman Khan<br />
             &amp; Mrs. Naseem Bano
           </span>
         </div>
 
         {/* Closing line */}
-        <p style={{
-          fontFamily: "'Cormorant Garamond', serif",
-          fontStyle: 'italic',
-          fontSize: 14,
-          color: '#C9A84C',
-          textAlign: 'center',
-          letterSpacing: '0.08em',
-          marginTop: 8,
-        }}>
+        <p className="font-sub italic text-[14px] text-center" style={{ color: '#C9A84C', letterSpacing: '0.08em', marginTop: 8 }}>
           two families, one beautiful beginning
         </p>
-      </motion.div>
+      </div>
     </section>
   );
 };
