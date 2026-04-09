@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { NameLetterStagger } from './HeroAnimations';
+import bismillahHeader from '@/assets/bismillah-header.png';
 
 const HeroSection = () => {
   return (
@@ -12,8 +13,6 @@ const HeroSection = () => {
       className="w-full min-h-screen py-20 px-6 flex flex-col items-center justify-center text-center relative overflow-hidden"
       style={{ backgroundColor: 'transparent' }}
     >
-      {/* Flowers handled by ContinuousFlowers in parent */}
-
       <motion.div
         className="max-w-3xl mx-auto flex flex-col items-center relative z-10"
         variants={{
@@ -23,14 +22,17 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Bismillah */}
-        <motion.p
-          variants={{ hidden: { opacity: 0, y: 20, filter: 'blur(6px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.9, ease: 'easeOut' } } }}
-          className="font-display text-[18px]"
-          style={{ color: '#4A7C59', letterSpacing: '0.05em', marginBottom: '16px', textAlign: 'center' }}
+        {/* Bismillah calligraphy image */}
+        <motion.div
+          variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: 'easeOut' } } }}
+          className="mb-2"
         >
-          بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
-        </motion.p>
+          <img
+            src={bismillahHeader}
+            alt="Bismillah - In the Name of Allah"
+            className="w-[200px] sm:w-[260px] h-auto mx-auto"
+          />
+        </motion.div>
 
         {/* English translation */}
         <motion.p
@@ -74,7 +76,6 @@ const HeroSection = () => {
             <NameLetterStagger name="Nadia" />
           </h1>
         </motion.div>
-
 
         {/* Lotus / floral motif */}
         <motion.svg
