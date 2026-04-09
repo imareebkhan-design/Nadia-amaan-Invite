@@ -9,7 +9,7 @@ import { useEffect, useRef, useCallback } from 'react';
  * - Uses sub-pixel accumulation for Apple-level smoothness
  */
 
-const SECTION_IDS = ['hero', 'countdown', 'couple', 'events', 'venue', 'rsvp'];
+const SECTION_IDS = ['hero', 'countdown', 'couple', 'events', 'venue', 'blessings'];
 
 export function useAutoScroll(
   enabled: boolean,
