@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import eventsImage from "@/assets/events-banquet.png";
+import eventsImage from "@/assets/events-banquet.jpg";
 
 const SectionHeader = () => {
   const ref = useRef(null);
