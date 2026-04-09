@@ -59,7 +59,7 @@ const CoupleSection = () => {
       {/* Section title */}
       <h2
         className="font-display text-4xl font-normal text-center mb-2"
-        style={{ color: '#2D2D2D', lineHeight: 1.2 }}
+        style={{ color: '#E06B82', lineHeight: 1.2 }}
       >
         A Union Blessed
       </h2>

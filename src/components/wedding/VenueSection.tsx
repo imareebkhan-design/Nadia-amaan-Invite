@@ -28,7 +28,7 @@ const VenueSection = () => {
             fontFamily: "'Playfair Display', serif",
             fontSize: "36px",
             fontWeight: 400,
-            color: "#2D2D2D",
+            color: "#4A7C59",
             marginBottom: "40px",
           }}
         >
