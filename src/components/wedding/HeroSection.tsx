@@ -88,7 +88,7 @@ const HeroSection = () => {
         <motion.p
           variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } } }}
           className="font-body text-[13px] sm:text-[15px] mt-2"
-          style={{ fontWeight: 300, color: '#999' }}
+          style={{ fontWeight: 300, color: '#2D2D2D' }}
         >
           7:00 PM · L'Elegant Banquet Hall, Delhi
         </motion.p>
