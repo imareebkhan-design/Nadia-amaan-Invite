@@ -20,7 +20,6 @@ const SEAL_OPENED_KEY = "wedding_seal_opened";
 
 const Index = () => {
   const [searchParams] = useSearchParams();
-  useAutoScroll(false); // moved below after state init
   const guestName = useMemo(() => searchParams.get('guest') || undefined, [searchParams]);
 
   const [envelopeOpened, setEnvelopeOpened] = useState(() => {
@@ -31,14 +30,15 @@ const Index = () => {
     }
   });
 
+  // Hook always called (never conditional) — enabled flag controls behavior
+  useAutoScroll(envelopeOpened, 4000, 55);
+
   const handleEnvelopeOpen = useCallback(() => {
     setEnvelopeOpened(true);
     try {
       sessionStorage.setItem(SEAL_OPENED_KEY, "true");
     } catch {}
   }, []);
-
-  useAutoScroll(envelopeOpened, 4000, 55);
 
   return (
     <main className="scroll-smooth">
