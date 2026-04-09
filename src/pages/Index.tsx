@@ -37,6 +37,8 @@ const Index = () => {
     } catch {}
   }, []);
 
+  useAutoScroll(envelopeOpened, 4000, 0.8);
+
   return (
     <main className="scroll-smooth">
       <AnimatePresence mode="wait">
