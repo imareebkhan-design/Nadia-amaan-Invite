@@ -18,7 +18,7 @@ const SectionHeader = () => {
       <p className="uppercase" style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", color: "#C9A84C", letterSpacing: "0.22em", marginBottom: "12px" }}>
         An Evening of Celebration
       </p>
-      <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "36px", color: "#2D2D2D", fontWeight: 400, marginBottom: "8px" }}>
+      <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: "36px", color: "#4A7C59", fontWeight: 400, marginBottom: "8px" }}>
         The Festivities
       </h2>
       <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "16px", color: "#999" }}>
@@ -341,7 +341,7 @@ const DressCodeGuide = () => {
       <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", color: "#C9A84C", letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: "12px" }}>
         Suggested Palette
       </p>
-      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", color: "#2D2D2D", fontWeight: 400, marginBottom: "8px" }}>
+      <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "24px", color: "#4A7C59", fontWeight: 400, marginBottom: "8px" }}>
         What to Wear
       </h3>
       <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "15px", color: "#999", marginBottom: "28px", maxWidth: "320px", marginLeft: "auto", marginRight: "auto" }}>
