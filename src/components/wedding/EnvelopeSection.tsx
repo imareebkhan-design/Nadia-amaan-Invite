@@ -242,7 +242,7 @@ const EnvelopeSection = ({ onOpen }: EnvelopeSectionProps) => {
             className="font-display mt-1 md:mt-2"
             style={{ color: '#E06B82', fontSize: isMobile ? 26 : 36, lineHeight: 1.1 }}
           >
-            Ramya & Kishan
+            Amaan & Nadia
           </p>
 
           <div className="flex items-center gap-2 my-1.5 md:my-2.5">
@@ -255,13 +255,13 @@ const EnvelopeSection = ({ onOpen }: EnvelopeSectionProps) => {
             className="text-[9px] md:text-xs tracking-[0.15em]"
             style={{ color: '#4A7C59', opacity: 0.55, fontFamily: "'DM Sans', sans-serif" }}
           >
-            9 · May · 2026
+            Sunday, 17th May 2026
           </p>
           <p
             className="text-[7px] md:text-[9px] mt-0.5 tracking-wider"
             style={{ color: '#4A7C59', opacity: 0.35, fontFamily: "'DM Sans', sans-serif" }}
           >
-            Mayflower Farmhouse, Bangalore
+            L'Elegant Banquet Hall, Delhi
           </p>
 
           {/* Tiny leaf motif bottom */}
@@ -429,7 +429,7 @@ const EnvelopeSection = ({ onOpen }: EnvelopeSectionProps) => {
                     lineHeight: 1,
                   }}
                 >
-                  R & K
+                  A & N
                 </span>
 
                 {/* Wax texture highlight */}
@@ -465,7 +465,7 @@ const EnvelopeSection = ({ onOpen }: EnvelopeSectionProps) => {
             exit={{ opacity: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            Mayflower Farmhouse · Bangalore
+            17th May 2026 · Delhi
           </motion.p>
         )}
       </AnimatePresence>

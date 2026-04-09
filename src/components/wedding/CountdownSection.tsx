@@ -3,7 +3,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { ChevronsDown } from 'lucide-react';
 import { smoothScrollTo } from '@/lib/smoothScroll';
 
-const WEDDING_DATE = new Date('2026-05-09T02:30:00Z').getTime(); // 8:00 AM IST
+const WEDDING_DATE = new Date('2026-05-17T13:30:00Z').getTime(); // 7:00 PM IST
 
 interface TimeLeft {
   days: number;
@@ -180,7 +180,7 @@ const CountdownSection = () => {
             lineHeight: 1.2,
           }}
         >
-          09 · May · 2026
+          17 · May · 2026
         </h3>
       </motion.div>
 
@@ -204,7 +204,7 @@ const CountdownSection = () => {
         className="font-sub text-sm md:text-lg text-center mb-6 md:mb-10 px-4"
         style={{ color: '#4A7C59', fontWeight: 300, opacity: 0.7 }}
       >
-        The auspicious moment arrives in…
+        The blessed moment arrives in…
       </motion.p>
 
       {/* Countdown cards */}

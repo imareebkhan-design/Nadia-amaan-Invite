@@ -25,7 +25,7 @@ const SectionHeader = () => {
           marginBottom: "12px",
         }}
       >
-        Days of Celebration
+        An Evening of Celebration
       </p>
       <h2
         style={{
@@ -46,7 +46,7 @@ const SectionHeader = () => {
           color: "#999",
         }}
       >
-        Saturday, 9th May 2026 · Mayflower Farmhouse, Bengaluru
+        Sunday, 17th May 2026 · L'Elegant Banquet Hall, Delhi
       </p>
       {/* Ornament divider */}
       <div className="flex items-center justify-center gap-3 mt-6">
@@ -153,199 +153,7 @@ const Pill = ({ text, bg, border, color, dotColor }: PillProps) => (
   </div>
 );
 
-const BotanicalDivider = () => (
-  <div
-    className="flex items-center justify-center gap-4 px-6"
-    style={{ background: "transparent", padding: "32px 24px" }}
-  >
-    <div style={{ flex: 1, maxWidth: "180px", height: "0.5px", background: "#E0C8B0" }} />
-    <span
-      style={{
-        fontFamily: "'Cormorant Garamond', serif",
-        fontStyle: "italic",
-        fontSize: "14px",
-        color: "#C9A84C",
-        letterSpacing: "0.08em",
-        whiteSpace: "nowrap",
-      }}
-    >
-      and as the sun sets…
-    </span>
-    <div style={{ flex: 1, maxWidth: "180px", height: "0.5px", background: "#E0C8B0" }} />
-  </div>
-);
-
-const MorningBlock = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative w-full overflow-hidden"
-      style={{ minHeight: "540px" }}
-    >
-      <img
-        src="https://drive.google.com/thumbnail?id=1NurfXREnLoKNLkWVQqqCobkv4T8JHGdE&sz=w1920"
-        alt="Wedding ceremony venue"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-
-      {/* Overlay — mobile: full cover, desktop: left gradient */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to right, rgba(255,248,244,0.97) 42%, rgba(255,248,244,0.5) 70%, transparent 100%)",
-        }}
-      />
-      {/* Mobile overlay override */}
-      <div
-        className="absolute inset-0 md:hidden"
-        style={{
-          background: "linear-gradient(to bottom, rgba(255,248,244,0.95) 60%, rgba(255,248,244,0.7) 100%)",
-        }}
-      />
-
-      {/* Content */}
-      <div
-        className="relative md:absolute md:inset-y-0 md:left-0 flex flex-col justify-center w-full md:w-[52%] p-6 sm:p-8 md:p-10"
-      >
-        <p
-          className="uppercase"
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
-            color: "#E06B82",
-            letterSpacing: "0.22em",
-            marginBottom: "12px",
-          }}
-        >
-          Wedding Ceremony
-        </p>
-
-        <h3
-          className="text-[32px] md:text-[42px]"
-          style={{
-            fontFamily: "'Playfair Display', serif",
-            color: "#2D2D2D",
-            fontWeight: 400,
-            lineHeight: 1.15,
-            marginBottom: "16px",
-          }}
-        >
-          The<br />Muhurtham
-        </h3>
-
-        <p
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontStyle: "italic",
-            fontSize: "17px",
-            color: "#666",
-            maxWidth: "300px",
-            marginBottom: "28px",
-            lineHeight: 1.5,
-          }}
-        >
-          Sacred rituals in a beautiful outdoor theatre setup under natural tree canopy.
-        </p>
-
-        {/* Pills */}
-        <div className="flex flex-wrap gap-2 mb-7">
-          <Pill
-            text="08:00 AM – 01:30 PM"
-            bg="rgba(244,167,180,0.15)"
-            border="rgba(224,107,130,0.3)"
-            color="#C05070"
-            dotColor="#E06B82"
-          />
-          <Pill
-            text="Peepal Lawn"
-            bg="rgba(244,167,180,0.15)"
-            border="rgba(224,107,130,0.3)"
-            color="#C05070"
-            dotColor="#E06B82"
-          />
-        </div>
-
-        {/* Timeline */}
-        <div className="relative flex flex-col gap-4" style={{ paddingLeft: "5px" }}>
-          {/* Connector line */}
-          <div
-            className="absolute"
-            style={{
-              left: "5px",
-              top: "6px",
-              bottom: "6px",
-              width: "0.5px",
-              background: "rgba(224,107,130,0.3)",
-            }}
-          />
-          <TimelineItem time="08:00 AM" label="Gathering & breakfast" dotColor="#E06B82" timeColor="#E06B82" labelColor="#555" fillColor="#FFF8F4" delay={0} isInView={isInView} />
-          <TimelineItem time="09:00 AM" label="Muhurtham begins" dotColor="#E06B82" timeColor="#E06B82" labelColor="#555" fillColor="#FFF8F4" delay={0.15} isInView={isInView} />
-          <TimelineItem time="12:00 PM" label="Lunch & photo session" dotColor="#E06B82" timeColor="#E06B82" labelColor="#555" fillColor="#FFF8F4" delay={0.3} isInView={isInView} isLast />
-        </div>
-
-        {/* Attire */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-7 flex items-start gap-3"
-          style={{ paddingLeft: "2px" }}
-        >
-          <div
-            className="shrink-0 mt-1"
-            style={{
-              width: "18px",
-              height: "18px",
-              borderRadius: "4px",
-              background: "rgba(224,107,130,0.08)",
-              border: "0.5px solid rgba(224,107,130,0.25)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <span style={{ fontSize: "10px" }}>👗</span>
-          </div>
-          <div>
-            <p
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: "10px",
-                fontWeight: 700,
-                color: "#E06B82",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                marginBottom: "4px",
-              }}
-            >
-              Attire
-            </p>
-            <p
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontStyle: "italic",
-                fontSize: "14px",
-                color: "#777",
-                lineHeight: 1.5,
-                maxWidth: "280px",
-              }}
-            >
-              Traditional Indian dress
-            </p>
-          </div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
-const EveningBlock = () => {
+const WaleemaBlock = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
@@ -359,8 +167,8 @@ const EveningBlock = () => {
       style={{ minHeight: "560px" }}
     >
       <img
-        src="https://drive.google.com/thumbnail?id=1tvVRxYVnASiUY2_e_YHpFaKDdLsTwQIz&sz=w1920"
-        alt="Reception venue"
+        src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&q=80"
+        alt="Elegant banquet hall"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
@@ -393,7 +201,7 @@ const EveningBlock = () => {
             marginBottom: "12px",
           }}
         >
-          Table Full of Love
+          Waleema — Wedding Reception
         </p>
 
         <h3
@@ -406,7 +214,7 @@ const EveningBlock = () => {
             marginBottom: "16px",
           }}
         >
-          Reception<br />& Dinner
+          The<br />Celebration
         </h3>
 
         <p
@@ -420,20 +228,20 @@ const EveningBlock = () => {
             lineHeight: 1.5,
           }}
         >
-          Live performances, formal entry & celebration under the evening sky.
+          An evening of joy, gratitude, and celebration as two families come together in love and blessings.
         </p>
 
         {/* Pills */}
         <div className="flex flex-wrap gap-2 mb-7">
           <Pill
-            text="05:00 PM – 09:30 PM"
+            text="7:00 PM Onwards"
             bg="rgba(168,197,160,0.15)"
             border="rgba(168,197,160,0.4)"
             color="#A8C5A0"
             dotColor="#A8C5A0"
           />
           <Pill
-            text="Large Lawn, Mayflower Farmhouse"
+            text="L'Elegant Banquet Hall, Kalindi Kunj, Delhi"
             bg="rgba(168,197,160,0.15)"
             border="rgba(168,197,160,0.4)"
             color="#A8C5A0"
@@ -453,9 +261,9 @@ const EveningBlock = () => {
               background: "rgba(168,197,160,0.3)",
             }}
           />
-          <TimelineItem time="05:00 PM onwards" label="Gathering at venue" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0} isInView={isInView} />
-          <TimelineItem time="07:00 PM onwards" label="Sangeet performances" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0.15} isInView={isInView} />
-          <TimelineItem time="08:00 PM onwards" label="Dinner & celebration" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0.3} isInView={isInView} isLast />
+          <TimelineItem time="07:00 PM onwards" label="Doors open & welcome" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0} isInView={isInView} />
+          <TimelineItem time="08:00 PM onwards" label="Dinner & celebrations" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0.15} isInView={isInView} />
+          <TimelineItem time="09:00 PM onwards" label="Blessings & festivities" dotColor="#A8C5A0" timeColor="#A8C5A0" labelColor="rgba(255,248,244,0.8)" fillColor="transparent" delay={0.3} isInView={isInView} isLast />
         </div>
 
         {/* Attire */}
@@ -505,7 +313,7 @@ const EveningBlock = () => {
                 maxWidth: "280px",
               }}
             >
-              Cocktail attire — wear something that shimmers in the light ✦
+              Formal & festive — dress to celebrate ✦
             </p>
           </div>
         </motion.div>
@@ -514,39 +322,12 @@ const EveningBlock = () => {
   );
 };
 
-const BottomNote = () => (
-  <div className="text-center" style={{ background: "transparent", padding: "40px 24px 52px" }}>
-    <p
-      style={{
-        fontFamily: "'Cormorant Garamond', serif",
-        fontStyle: "italic",
-        fontSize: "15px",
-        color: "#999",
-      }}
-    >
-      Both events at
-    </p>
-    <span
-      style={{
-        fontFamily: "'Playfair Display', serif",
-        fontSize: "18px",
-        color: "#4A7C59",
-        fontWeight: 400,
-        display: "block",
-        marginTop: "4px",
-      }}
-    >
-      Mayflower Farmhouse, Bengaluru
-    </span>
-  </div>
-);
-
 const EventsSection = () => {
   return (
     <section id="events" className="relative overflow-hidden">
       
       <SectionHeader />
-      <EveningBlock />
+      <WaleemaBlock />
     </section>
   );
 };
