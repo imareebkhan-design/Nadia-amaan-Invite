@@ -40,12 +40,8 @@ const fadeUp = {
 
 const CoupleSection = () => {
   return (
-    <motion.section
+    <section
       id="couple"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ staggerChildren: 0.15 }}
       className="relative flex flex-col items-center overflow-hidden"
       style={{ backgroundColor: '#FFF8F4', padding: '72px 24px 80px' }}
     >
