@@ -107,7 +107,7 @@ const RsvpSection = () => {
           >
             Kindly Respond
           </h2>
-          <p className="font-body text-sm" style={{ color: '#999' }}>
+          <p className="font-body text-sm" style={{ color: '#2D2D2D' }}>
             Kindly respond by 10th May 2026
           </p>
         </motion.div>
