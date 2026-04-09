@@ -217,12 +217,12 @@ const WaleemaBlock = () => {
               left: "-20%",
               width: "140%",
               height: "60%",
-              background: "linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 50%)",
+              background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)",
               borderRadius: "50%",
             }}
             animate={{
-              opacity: [0.3, 0.5, 0.3],
-              rotate: [0, 3, 0],
+              opacity: [0.2, 0.35, 0.2],
+              rotate: [0, 2, 0],
             }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
@@ -232,7 +232,7 @@ const WaleemaBlock = () => {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "10px",
-              color: "#4A7C59",
+              color: "#A8C5A0",
               letterSpacing: "0.22em",
               marginBottom: "12px",
             }}
@@ -244,7 +244,7 @@ const WaleemaBlock = () => {
             className="text-[32px] md:text-[40px] relative z-10"
             style={{
               fontFamily: "'Playfair Display', serif",
-              color: "#2D4A3E",
+              color: "#FFF8F4",
               fontWeight: 400,
               lineHeight: 1.15,
               marginBottom: "16px",
@@ -259,7 +259,7 @@ const WaleemaBlock = () => {
               fontFamily: "'Cormorant Garamond', serif",
               fontStyle: "italic",
               fontSize: "17px",
-              color: "rgba(45,74,62,0.7)",
+              color: "rgba(255,248,244,0.7)",
               maxWidth: "300px",
               marginBottom: "28px",
               lineHeight: 1.5,
@@ -274,7 +274,7 @@ const WaleemaBlock = () => {
           </div>
 
           <div className="relative flex flex-col gap-4 z-10" style={{ paddingLeft: "5px" }}>
-            <div className="absolute" style={{ left: "5px", top: "6px", bottom: "6px", width: "0.5px", background: "rgba(74,124,89,0.2)" }} />
+            <div className="absolute" style={{ left: "5px", top: "6px", bottom: "6px", width: "0.5px", background: "rgba(168,197,160,0.3)" }} />
             <TimelineItem time="07:00 PM" label="Doors open & welcome" delay={0} isInView={isInView} />
             <TimelineItem time="08:00 PM" label="Dinner & celebrations" delay={0.15} isInView={isInView} />
             <TimelineItem time="09:00 PM" label="Blessings & festivities" delay={0.3} isInView={isInView} />
@@ -293,9 +293,9 @@ const WaleemaBlock = () => {
                 width: "18px",
                 height: "18px",
                 borderRadius: "6px",
-                background: "rgba(74,124,89,0.08)",
+                background: "rgba(255,255,255,0.1)",
                 backdropFilter: "blur(4px)",
-                border: "0.5px solid rgba(74,124,89,0.15)",
+                border: "0.5px solid rgba(255,255,255,0.2)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -304,8 +304,8 @@ const WaleemaBlock = () => {
               <span style={{ fontSize: "10px" }}>✨</span>
             </div>
             <div>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#4A7C59", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "rgba(45,74,62,0.6)", lineHeight: 1.5, maxWidth: "280px" }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#A8C5A0", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "rgba(255,248,244,0.6)", lineHeight: 1.5, maxWidth: "280px" }}>
                 Formal & festive — dress to celebrate ✦
               </p>
             </div>
