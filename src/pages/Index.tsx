@@ -37,7 +37,7 @@ const Index = () => {
     } catch {}
   }, []);
 
-  useAutoScroll(envelopeOpened, 4000, 0.8);
+  useAutoScroll(envelopeOpened, 4000, 55);
 
   return (
     <main className="scroll-smooth">
