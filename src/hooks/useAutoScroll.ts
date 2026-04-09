@@ -111,10 +111,8 @@ export function useAutoScroll(
         // Sub-pixel smooth scrolling
         accumulatedRef.current += (pxPerSecond * delta) / 1000;
 
-        window.scrollTo({
-          top: accumulatedRef.current,
-          behavior: 'instant' as ScrollBehavior,
-        });
+        // Use window.scrollTo with plain number — maximum mobile compatibility
+        window.scrollTo(0, accumulatedRef.current);
 
         rafRef.current = requestAnimationFrame(step);
       };
@@ -130,7 +128,7 @@ export function useAutoScroll(
     };
 
     // Only direct user input events — not 'scroll' (our own scrollTo triggers it)
-    const events = ['touchstart', 'touchmove', 'mousemove', 'mousedown', 'keydown', 'wheel'] as const;
+    const events = ['touchstart', 'touchmove', 'touchend', 'mousemove', 'mousedown', 'keydown', 'wheel'] as const;
 
     // For touch: immediately stop auto-scroll
     const handleUserInteraction = () => {
