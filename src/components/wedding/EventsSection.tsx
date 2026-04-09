@@ -53,15 +53,15 @@ const TimelineItem = ({ time, label, delay, isInView }: TimelineItemProps) => (
         width: "11px",
         height: "11px",
         borderRadius: "50%",
-        border: "1.5px solid rgba(74,124,89,0.7)",
-        background: "rgba(74,124,89,0.15)",
-        boxShadow: "0 0 6px rgba(74,124,89,0.3)",
+        border: "1.5px solid rgba(168,197,160,0.7)",
+        background: "rgba(168,197,160,0.2)",
+        boxShadow: "0 0 6px rgba(168,197,160,0.3)",
       }}
     />
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#4A7C59", minWidth: "70px" }}>
+    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#A8C5A0", minWidth: "70px" }}>
       {time}
     </span>
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(45,45,45,0.75)" }}>
+    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,248,244,0.8)" }}>
       {label}
     </span>
   </motion.div>
@@ -72,31 +72,31 @@ interface PillProps {
 }
 
 const GlassPill = ({ text }: PillProps) => (
-  <div
-    className="flex items-center gap-2"
-    style={{
-      padding: "6px 14px",
-      borderRadius: "40px",
-      background: "rgba(74,124,89,0.08)",
-      backdropFilter: "blur(8px)",
-      WebkitBackdropFilter: "blur(8px)",
-      border: "0.5px solid rgba(74,124,89,0.2)",
-    }}
-  >
     <div
+      className="flex items-center gap-2"
       style={{
-        width: "8px",
-        height: "8px",
-        borderRadius: "50%",
-        background: "linear-gradient(135deg, #4A7C59, #6BA368)",
-        boxShadow: "0 0 4px rgba(74,124,89,0.4)",
-        flexShrink: 0,
+        padding: "6px 14px",
+        borderRadius: "40px",
+        background: "rgba(255,255,255,0.1)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
+        border: "0.5px solid rgba(255,255,255,0.25)",
       }}
-    />
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#4A7C59" }}>
-      {text}
-    </span>
-  </div>
+    >
+      <div
+        style={{
+          width: "8px",
+          height: "8px",
+          borderRadius: "50%",
+          background: "linear-gradient(135deg, #A8C5A0, #6BA368)",
+          boxShadow: "0 0 4px rgba(168,197,160,0.5)",
+          flexShrink: 0,
+        }}
+      />
+      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "rgba(255,248,244,0.85)" }}>
+        {text}
+      </span>
+    </div>
 );
 
 /* Animated liquid glass blob */
