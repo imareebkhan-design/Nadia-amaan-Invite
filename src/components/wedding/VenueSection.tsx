@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { MapPin, ExternalLink } from "lucide-react";
+import venuePhoto from "@/assets/venue-photo.webp";
 
 
 const VenueSection = () => {
@@ -18,6 +19,26 @@ const VenueSection = () => {
       </motion.div>
 
       <div className="max-w-5xl mx-auto px-4 md:px-6 space-y-8">
+        {/* Venue hero photo */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="relative overflow-hidden"
+          style={{ borderRadius: '12px', marginBottom: '24px' }}
+        >
+          <img
+            src={venuePhoto}
+            alt="L'Elegant Banquet Hall"
+            style={{ height: '200px' }}
+            className="w-full object-cover sm:h-[240px] md:h-[300px]"
+            loading="lazy"
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, transparent 60%, rgba(255,248,244,0.8) 100%)' }}
+          />
+        </motion.div>
         <div className="max-w-lg mx-auto">
 
           <motion.div initial={{ opacity: 0, y: 40 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, delay: 0.2 }}
