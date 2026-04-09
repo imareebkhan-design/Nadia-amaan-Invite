@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import eventsImage from "@/assets/events-banquet.jpg";
+import eventsImage from "@/assets/events-banquet.png";
 
 const SectionHeader = () => {
   const ref = useRef(null);
@@ -141,50 +141,50 @@ const WaleemaBlock = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Light frosted overlay instead of dark */}
+      {/* Subtle gradient overlay — no blur so image stays sharp */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
-          background: "linear-gradient(to left, rgba(255,252,248,0.88) 40%, rgba(255,252,248,0.55) 65%, transparent 100%)",
-          backdropFilter: "blur(1px)",
+          background: "linear-gradient(to left, rgba(0,0,0,0.45) 30%, rgba(0,0,0,0.15) 60%, transparent 100%)",
         }}
       />
       <div
         className="absolute inset-0 md:hidden"
         style={{
-          background: "linear-gradient(to bottom, rgba(255,252,248,0.2) 0%, rgba(255,252,248,0.92) 35%)",
+          background: "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.55) 40%)",
         }}
       />
 
-      {/* Liquid glass blobs */}
+      {/* Liquid glass blobs — lighter blur for dreamy glow */}
       <LiquidBlob
         style={{
-          width: "220px",
-          height: "220px",
-          background: "radial-gradient(circle, rgba(74,124,89,0.25) 0%, rgba(106,163,104,0.1) 70%, transparent 100%)",
-          top: "10%",
-          right: "5%",
+          width: "200px",
+          height: "200px",
+          background: "radial-gradient(circle, rgba(74,124,89,0.3) 0%, rgba(106,163,104,0.12) 60%, transparent 100%)",
+          filter: "blur(40px)",
+          top: "8%",
+          right: "8%",
         }}
       />
       <LiquidBlob
         className="hidden md:block"
         style={{
-          width: "180px",
-          height: "180px",
-          background: "radial-gradient(circle, rgba(201,168,76,0.18) 0%, rgba(201,168,76,0.05) 70%, transparent 100%)",
-          bottom: "15%",
-          right: "20%",
-          animationDelay: "2s",
+          width: "160px",
+          height: "160px",
+          background: "radial-gradient(circle, rgba(201,168,76,0.22) 0%, transparent 70%)",
+          filter: "blur(40px)",
+          bottom: "12%",
+          right: "22%",
         }}
       />
       <LiquidBlob
         style={{
-          width: "140px",
-          height: "140px",
-          background: "radial-gradient(circle, rgba(74,124,89,0.2) 0%, transparent 70%)",
-          top: "50%",
-          right: "35%",
-          animationDelay: "4s",
+          width: "120px",
+          height: "120px",
+          background: "radial-gradient(circle, rgba(74,124,89,0.25) 0%, transparent 70%)",
+          filter: "blur(35px)",
+          top: "55%",
+          right: "38%",
         }}
       />
 
@@ -198,12 +198,12 @@ const WaleemaBlock = () => {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            background: "rgba(255,255,255,0.45)",
-            backdropFilter: "blur(24px) saturate(1.4)",
-            WebkitBackdropFilter: "blur(24px) saturate(1.4)",
-            borderRadius: "24px",
-            border: "1px solid rgba(255,255,255,0.6)",
-            boxShadow: "0 8px 40px rgba(74,124,89,0.08), inset 0 1px 0 rgba(255,255,255,0.7), 0 1px 3px rgba(0,0,0,0.04)",
+            background: "rgba(255,255,255,0.12)",
+            backdropFilter: "blur(40px) saturate(1.8) brightness(1.1)",
+            WebkitBackdropFilter: "blur(40px) saturate(1.8) brightness(1.1)",
+            borderRadius: "28px",
+            border: "1px solid rgba(255,255,255,0.35)",
+            boxShadow: "0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(255,255,255,0.1), 0 0 0 0.5px rgba(255,255,255,0.2)",
             padding: "32px 28px",
             position: "relative",
             overflow: "hidden",
