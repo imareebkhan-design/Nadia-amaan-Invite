@@ -8,7 +8,7 @@ import CountdownSection from '@/components/wedding/CountdownSection';
 import CoupleSection from '@/components/wedding/CoupleSection';
 import EventsSection from '@/components/wedding/EventsSection';
 import VenueSection from '@/components/wedding/VenueSection';
-import RsvpSection from '@/components/wedding/RsvpSection';
+import BlessingsSection from '@/components/wedding/BlessingsSection';
 import ThankYouSection from '@/components/wedding/ThankYouSection';
 import MusicToggle from '@/components/wedding/MusicToggle';
 import FloatingNav from '@/components/wedding/FloatingNav';
