@@ -1,4 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
+import { useAutoScroll } from '@/hooks/useAutoScroll';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import EnvelopeSection from '@/components/wedding/EnvelopeSection';
@@ -35,6 +36,8 @@ const Index = () => {
       sessionStorage.setItem(SEAL_OPENED_KEY, "true");
     } catch {}
   }, []);
+
+  useAutoScroll(envelopeOpened, 4000, 0.8);
 
   return (
     <main className="scroll-smooth">
