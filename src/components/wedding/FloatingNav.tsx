@@ -9,7 +9,7 @@ const sections = [
   { id: "countdown", label: "Date" },
   { id: "events", label: "Events" },
   { id: "venue", label: "Venue" },
-  { id: "rsvp", label: "RSVP" },
+  { id: "blessings", label: "Duas" },
 ];
 
 const FloatingNav = () => {
