@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { NameLetterStagger } from './HeroAnimations';
-import bismillahHeader from '@/assets/bismillah-header.png';
 
 const HeroSection = () => {
   return (
@@ -22,26 +21,6 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        {/* Bismillah calligraphy image */}
-        <motion.div
-          variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 1.2, ease: 'easeOut' } } }}
-          className="mb-2"
-        >
-          <img
-            src={bismillahHeader}
-            alt="Bismillah - In the Name of Allah"
-            className="w-[200px] sm:w-[260px] h-auto mx-auto"
-          />
-        </motion.div>
-
-        {/* English translation */}
-        <motion.p
-          variants={{ hidden: { opacity: 0, y: 15, filter: 'blur(4px)' }, visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: 'easeOut' } } }}
-          className="font-body uppercase"
-          style={{ fontSize: '11px', color: '#999', letterSpacing: '0.15em', textAlign: 'center', marginBottom: '24px' }}
-        >
-          In the Name of Allah, the Most Beneficent, the Most Merciful
-        </motion.p>
 
         {/* Invite line */}
         <motion.p
