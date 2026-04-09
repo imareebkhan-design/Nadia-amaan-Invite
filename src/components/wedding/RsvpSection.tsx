@@ -12,11 +12,11 @@ const staggerContainer = {
 };
 
 const staggerItem = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(4px)' },
+  hidden: { opacity: 0, y: 30, },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
+    
     transition: { duration: 0.8, ease: 'easeOut' as const },
   },
 };
