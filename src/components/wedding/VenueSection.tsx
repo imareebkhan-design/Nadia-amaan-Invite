@@ -1,4 +1,4 @@
-import venuePhoto from "@/assets/venue-photo.webp";
+import venuePhoto from "@/assets/venue-photo.avif";
 
 const VenueSection = () => {
   return (
