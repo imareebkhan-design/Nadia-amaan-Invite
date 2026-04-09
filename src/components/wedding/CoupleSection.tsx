@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
-const couplePhoto = 'https://drive.google.com/thumbnail?id=1prxBx-oR37z6FW9iV_H5apTzYt3wTd0W&sz=w1600';
+import couplePhoto from '@/assets/couple-photo.jpeg';
 
 const DecorativeDivider = () => (
   <div className="flex items-center justify-center gap-3 md:gap-4 my-6 md:my-8">
