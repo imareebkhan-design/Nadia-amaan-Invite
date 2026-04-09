@@ -388,7 +388,7 @@ const EventsSection = () => {
     <section id="events" className="relative overflow-hidden">
       <SectionHeader />
       <WaleemaBlock />
-      <DressCodeGuide />
+      
     </section>
   );
 };
