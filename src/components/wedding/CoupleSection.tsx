@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import couplePhoto from '@/assets/couple-photo.jpeg';
 
 const SmallDivider = () => (
@@ -33,11 +32,6 @@ const PeonyFloral = ({ mirror = false }: { mirror?: boolean }) => (
   </svg>
 );
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const CoupleSection = () => {
   return (
     <section
@@ -46,52 +40,40 @@ const CoupleSection = () => {
       style={{ backgroundColor: '#FFF8F4', padding: '72px 24px 80px' }}
     >
       {/* Top ornament */}
-      <motion.div
-        variants={fadeUp}
-        transition={{ duration: 0.6 }}
-        className="flex items-center gap-3 mb-8"
-      >
+      <div className="flex items-center gap-3 mb-8">
         <div style={{ width: 48, height: 0.5, background: '#E0C8B0' }} />
         <div style={{ width: 3, height: 3, background: '#E06B82', borderRadius: '50%' }} />
         <div style={{ width: 6, height: 6, background: '#C9A84C', transform: 'rotate(45deg)', flexShrink: 0 }} />
         <div style={{ width: 3, height: 3, background: '#E06B82', borderRadius: '50%' }} />
         <div style={{ width: 48, height: 0.5, background: '#E0C8B0' }} />
-      </motion.div>
+      </div>
 
       {/* Eyebrow */}
-      <motion.p
-        variants={fadeUp}
-        transition={{ duration: 0.6 }}
+      <p
         className="font-body text-[10px] font-medium uppercase text-center mb-2.5"
         style={{ letterSpacing: '0.22em', color: '#C9A84C' }}
       >
         THE MUSTAFA FAMILY INVITES YOU
-      </motion.p>
+      </p>
 
       {/* Section title */}
-      <motion.h2
-        variants={fadeUp}
-        transition={{ duration: 0.7 }}
+      <h2
         className="font-display text-4xl font-normal text-center mb-2"
         style={{ color: '#2D2D2D', lineHeight: 1.2 }}
       >
         A Union Blessed
-      </motion.h2>
+      </h2>
 
       {/* Bismillah */}
-      <motion.p
-        variants={fadeUp}
-        transition={{ duration: 0.6 }}
+      <p
         className="font-sub italic text-[15px] text-center mb-10"
         style={{ color: '#4A7C59', letterSpacing: '0.06em', opacity: 0.8 }}
       >
         In the Name of Allah, the Most Beneficent, the Most Merciful
-      </motion.p>
+      </p>
 
       {/* Photo frame */}
-      <motion.div
-        variants={fadeUp}
-        transition={{ duration: 1 }}
+      <div
         style={{
           width: '100%',
           maxWidth: 420,
@@ -99,21 +81,21 @@ const CoupleSection = () => {
           background: 'white',
           borderRadius: 20,
           boxShadow: '0 2px 0 #F4A7B4, 0 4px 0 rgba(244,167,180,0.4), 0 20px 60px rgba(0,0,0,0.10), 0 4px 16px rgba(0,0,0,0.06)',
-          position: 'relative',
+          position: 'relative' as const,
           margin: '0 auto',
         }}
       >
         {/* Top-left floral */}
-        <div style={{ position: 'absolute', top: -18, left: -18, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', top: -18, left: -18, pointerEvents: 'none' as const }}>
           <PeonyFloral />
         </div>
         {/* Bottom-right floral */}
-        <div style={{ position: 'absolute', bottom: -18, right: -18, pointerEvents: 'none' }}>
+        <div style={{ position: 'absolute', bottom: -18, right: -18, pointerEvents: 'none' as const }}>
           <PeonyFloral mirror />
         </div>
 
         {/* Inner photo */}
-        <div style={{ width: '100%', height: 340, borderRadius: 13, overflow: 'hidden', position: 'relative' }}>
+        <div style={{ width: '100%', height: 340, borderRadius: 13, overflow: 'hidden', position: 'relative' as const }}>
           <img
             src={couplePhoto}
             alt="Amaan & Nadia"
@@ -146,12 +128,10 @@ const CoupleSection = () => {
             Nadia
           </span>
         </div>
-      </motion.div>
+      </div>
 
       {/* Story / Lineage block */}
-      <motion.div
-        variants={fadeUp}
-        transition={{ duration: 0.8 }}
+      <div
         className="flex flex-col items-center"
         style={{ maxWidth: 400, marginTop: 36 }}
       >
@@ -192,8 +172,8 @@ const CoupleSection = () => {
         <p className="font-sub italic text-[14px] text-center" style={{ color: '#C9A84C', letterSpacing: '0.08em', marginTop: 8 }}>
           two families, one beautiful beginning
         </p>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 };
 
