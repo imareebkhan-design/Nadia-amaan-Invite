@@ -58,10 +58,10 @@ const TimelineItem = ({ time, label, delay, isInView }: TimelineItemProps) => (
         boxShadow: "0 0 6px rgba(168,197,160,0.3)",
       }}
     />
-      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#2D5A3D", minWidth: "70px" }}>
+      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#FFFFFF", minWidth: "70px" }}>
       {time}
     </span>
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#2D5A3D" }}>
+    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#FFFFFF" }}>
       {label}
     </span>
   </motion.div>
@@ -93,7 +93,7 @@ const GlassPill = ({ text }: PillProps) => (
           flexShrink: 0,
         }}
       />
-      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#2D5A3D" }}>
+      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#FFFFFF" }}>
         {text}
       </span>
     </div>
@@ -232,7 +232,7 @@ const WaleemaBlock = () => {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "10px",
-             color: "#2D5A3D",
+             color: "#FFFFFF",
               letterSpacing: "0.22em",
               marginBottom: "12px",
             }}
@@ -244,7 +244,7 @@ const WaleemaBlock = () => {
             className="text-[32px] md:text-[40px] relative z-10"
             style={{
               fontFamily: "'Playfair Display', serif",
-              color: "#2D5A3D",
+              color: "#FFF8F4",
               fontWeight: 400,
               lineHeight: 1.15,
               marginBottom: "16px",
@@ -259,7 +259,7 @@ const WaleemaBlock = () => {
               fontFamily: "'Cormorant Garamond', serif",
               fontStyle: "italic",
               fontSize: "17px",
-              color: "#2D5A3D",
+              color: "#FFFFFF",
               maxWidth: "300px",
               marginBottom: "28px",
               lineHeight: 1.5,
@@ -304,8 +304,8 @@ const WaleemaBlock = () => {
               <span style={{ fontSize: "10px" }}>✨</span>
             </div>
             <div>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#2D5A3D", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "#2D5A3D", lineHeight: 1.5, maxWidth: "280px" }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#FFFFFF", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "#FFFFFF", lineHeight: 1.5, maxWidth: "280px" }}>
                 Formal & festive — dress to celebrate ✦
               </p>
             </div>
