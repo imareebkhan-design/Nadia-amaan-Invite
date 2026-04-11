@@ -58,10 +58,10 @@ const TimelineItem = ({ time, label, delay, isInView }: TimelineItemProps) => (
         boxShadow: "0 0 6px rgba(168,197,160,0.3)",
       }}
     />
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#A8C5A0", minWidth: "70px" }}>
+      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11px", fontWeight: 700, color: "#D4E8CF", minWidth: "70px" }}>
       {time}
     </span>
-    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "rgba(255,248,244,0.8)" }}>
+    <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#F0EDE8" }}>
       {label}
     </span>
   </motion.div>
@@ -93,7 +93,7 @@ const GlassPill = ({ text }: PillProps) => (
           flexShrink: 0,
         }}
       />
-      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "rgba(255,248,244,0.85)" }}>
+      <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#F0EDE8" }}>
         {text}
       </span>
     </div>
@@ -232,7 +232,7 @@ const WaleemaBlock = () => {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize: "10px",
-              color: "#A8C5A0",
+             color: "#D4E8CF",
               letterSpacing: "0.22em",
               marginBottom: "12px",
             }}
@@ -259,7 +259,7 @@ const WaleemaBlock = () => {
               fontFamily: "'Cormorant Garamond', serif",
               fontStyle: "italic",
               fontSize: "17px",
-              color: "rgba(255,248,244,0.7)",
+              color: "#F0EDE8",
               maxWidth: "300px",
               marginBottom: "28px",
               lineHeight: 1.5,
@@ -304,8 +304,8 @@ const WaleemaBlock = () => {
               <span style={{ fontSize: "10px" }}>✨</span>
             </div>
             <div>
-              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#A8C5A0", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
-              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "rgba(255,248,244,0.6)", lineHeight: 1.5, maxWidth: "280px" }}>
+              <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "10px", fontWeight: 700, color: "#D4E8CF", letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: "4px" }}>Attire</p>
+              <p style={{ fontFamily: "'Cormorant Garamond', serif", fontStyle: "italic", fontSize: "14px", color: "#F0EDE8", lineHeight: 1.5, maxWidth: "280px" }}>
                 Formal & festive — dress to celebrate ✦
               </p>
             </div>

@@ -6,10 +6,6 @@ const duas = [
     arabic: 'بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ',
     translation: 'May Allah bless you and shower His blessings upon you, and may He unite you both in goodness.',
   },
-  {
-    arabic: 'رَبَّنَا هَبْ لَنَا مِنْ أَزْوَاجِنَا وَذُرِّيَّاتِنَا قُرَّةَ أَعْيُنٍ',
-    translation: 'Our Lord, grant us from among our spouses and offspring comfort to our eyes.',
-  },
 ];
 
 const BlessingsSection = () => {
