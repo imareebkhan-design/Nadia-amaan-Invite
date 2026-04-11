@@ -1,4 +1,4 @@
-import venuePhoto from "@/assets/venue-photo.avif";
+import venuePhoto from "@/assets/venue-photo-new.jpeg";
 
 const VenueSection = () => {
   return (
@@ -81,7 +81,7 @@ const VenueSection = () => {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: "12px",
-                  color: "rgba(255,248,244,0.6)",
+                  color: "#FFFFFF",
                   letterSpacing: "0.1em",
                   marginTop: "4px",
                 }}
@@ -153,7 +153,7 @@ const VenueSection = () => {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "12px",
-                color: "#999",
+                color: "#2D2D2D",
                 marginTop: "4px",
               }}
             >
@@ -197,7 +197,7 @@ const VenueSection = () => {
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: "12px",
-                color: "#999",
+                color: "#2D2D2D",
                 marginTop: "4px",
               }}
             >
