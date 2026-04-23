@@ -1,41 +1,75 @@
 
+Goal: eliminate the auto-scroll stutter by reducing per-frame work during programmatic scrolling and removing the most expensive visual effects that are being recomposited while the page moves.
 
-# Wedding Invitation Website — Ramya & Raj Kishan K
+Implementation plan
 
-A premium, mobile-first single-page wedding invitation with lush botanical aesthetics, smooth animations, and interactive features.
+1. Refactor the auto-scroll controller in `src/lib/smoothScroll.ts`
+- Replace repeated section DOM lookups during every animation frame with cached section measurements.
+- Precompute each tracked section’s top offset once on start, then refresh that cache on `resize`, `orientationchange`, image load completion, and after the invitation opens.
+- Track the current auto-scroll position in a local variable and write it with `window.scrollTo` without re-reading layout-heavy values more than necessary.
+- Add a small section-threshold buffer so the pause logic does not repeatedly stop/restart near boundaries.
+- Throttle or coalesce user-interaction resets so wheel/touch bursts do not constantly tear down and restart the scroll state.
 
-## Design System
-- **Palette:** Blush pink (#F4A7B4), deep pink (#E06B82), botanical green (#4A7C59), gold (#C9A84C), warm cream (#FFF8F4)
-- **Fonts:** Playfair Display (display), Cormorant Garamond (subheadings), DM Sans (body), Dancing Script (handwriting)
-- **Aesthetic:** Botanical garden party — pressed flowers, gold shimmer, afternoon tropical light
+2. Reduce scroll-linked React re-renders in `src/components/wedding/FloatingNav.tsx`
+- Replace the current raw `scroll` listener that calls `setVisible` and `setActive` on almost every scroll event with a lighter strategy:
+  - either `requestAnimationFrame` throttling, or
+  - preferably `IntersectionObserver` for section activation.
+- Only update state when the next value is actually different from the current one.
+- Keep the nav visible logic from toggling repeatedly around its threshold.
 
-## Sections to Build
+3. Remove expensive blur effects from elements that sit above animated scrolling content
+- Update `src/components/wedding/FloatingNav.tsx`
+- Update `src/components/wedding/MusicToggle.tsx`
+- Update `src/components/wedding/EventsSection.tsx`
+- Replace `backdropFilter` / `WebkitBackdropFilter` glassmorphism on floating controls and the festivities card with cheaper styling:
+  - more opaque backgrounds
+  - subtle borders
+  - soft box shadows
+  - optional text-shadow for readability instead of background blur
+- This directly targets the known performance hotspot where background blur is recomputed while the page is moving.
 
-### 1. Envelope Opening Animation
-Full-screen gold shimmer envelope with wax seal, confetti particles, and floral stamp. On tap/click: seal cracks → flap opens → invitation card rises out → confetti burst → auto-scroll to hero.
+4. Trim continuous animation cost in the busiest sections
+- Review `src/components/wedding/EventsSection.tsx`, `src/components/wedding/CountdownSection.tsx`, and `src/components/wedding/ContinuousFlowers.tsx`.
+- Reduce always-running infinite animations during auto-scroll, especially large blurred glow layers and pulsing decorative motion.
+- Keep the visual design, but prefer:
+  - static gradients over animated blurred blobs where possible
+  - fewer simultaneous infinite animations
+  - `transform`/`opacity` only animations for anything that remains animated
+- Ensure decorative layers use `pointer-events: none` and avoid unnecessary stacking/context churn.
 
-### 2. Hero / Landing Card
-Blush gradient card with inline SVG botanical corners (peonies, tiger lilies, mimosa, leaves). Polaroid-style couple photo placeholder, names "RAMYA & KISHAN" in deep pink, date, venue, and tagline. Staggered Framer Motion entrance.
+5. Smooth the interplay between manual smooth scrolling and auto-scroll
+- In `src/lib/smoothScroll.ts`, make manual section jumps and passive auto-scroll share the same cancellation rules so they do not fight each other.
+- Prevent overlapping scroll animations if the user taps nav links while auto-scroll is active.
+- Keep one active scroll controller at a time.
 
-### 3. Countdown Timer
-Deep green background with botanical overlay. Live countdown to May 9, 2026 6:00 AM IST in 4-column grid (days/hours/minutes/seconds). Gold accents, subtle pulse animation on tick.
+6. Verify section wiring in `src/pages/Index.tsx`
+- Confirm every section used by auto-scroll has a stable ID and consistent order.
+- Add missing wrapper IDs if needed so section detection does not depend on mixed inner/outer containers.
+- Keep the hook unconditional, but ensure it only initializes after the invitation is opened and the DOM is ready.
 
-### 4. Events Timeline
-8 event cards in a vertical timeline layout — from Wedding Ceremony (6 AM) through After Party (11:30 PM). Alternating left/right on desktop, left-aligned on mobile. Color-coded borders (pink for wedding, green for reception). Scroll-triggered slide-in animations.
+Technical details
+- Most likely bottlenecks in the current code:
+  - `backdropFilter` on the floating nav, music button, and festivities glass card
+  - `FloatingNav` calling state updates from a raw scroll listener
+  - repeated `document.getElementById` and `offsetTop` reads inside the auto-scroll animation loop
+  - multiple infinite blur/glow animations running while the page is scrolling
+- Main files to change:
+  - `src/lib/smoothScroll.ts`
+  - `src/components/wedding/FloatingNav.tsx`
+  - `src/components/wedding/MusicToggle.tsx`
+  - `src/components/wedding/EventsSection.tsx`
+  - possibly `src/components/wedding/ContinuousFlowers.tsx`
+  - possibly `src/pages/Index.tsx`
 
-### 5. Venue Cards + Map
-Two venue cards (Wedding & Reception) with details. Embedded Google Maps iframe below. "Get Directions" CTA button linking to the provided Google Maps link.
+Expected result
+- Auto-scroll moves continuously without visible hitching.
+- Section pauses still happen, but without micro-stops or jitter.
+- The floating controls remain elegant while becoming much lighter to render.
+- Older mobile devices should see the biggest improvement.
 
-### 6. RSVP Form
-Dark green section with glass-morphism form inputs. Fields: name, phone, guest count, event checkboxes, dietary preference, message. Supabase integration for data storage. Success confetti animation on submit.
-
-### 7. Thank You / Closing
-Cream background with full botanical SVG border frame. Couple names, date, closing tagline, and animated heart. Footer credit.
-
-## Cross-Cutting Features
-- **Background Music:** Hidden YouTube embed (Song: "Site Kalyanam"), floating gold pill toggle button (bottom-right), default OFF
-- **All floral elements:** Built as inline SVG components — no external image dependencies
-- **Framer Motion:** AnimatePresence for envelope, whileInView for scroll sections, useAnimation for countdown
-- **Mobile-first:** Max-width 480px centered, full-bleed backgrounds
-- **Supabase RSVP:** Using VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY env vars
-
+Validation after implementation
+- Test idle-start auto-scroll from top to bottom.
+- Test section pause/resume behavior at each major section.
+- Test wheel, touch, and keyboard interruption.
+- Test nav click scrolling while auto-scroll is active.
+- Confirm there is no visual regression in the festivities card, floating nav, or music control.
