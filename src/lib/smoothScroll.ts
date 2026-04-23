@@ -194,7 +194,32 @@ export function createAutoScrollController(options: {
   };
 
   const wheelHandler = () => handleUserInteraction();
-  const touchHandler = () => handleUserInteraction();
+
+  const touchStartHandler = (e: TouchEvent) => {
+    if (destroyed) return;
+    // Don't react to events triggered by our own programmatic scroll
+    if (performance.now() < selfScrollUntil) return;
+    if (e.touches.length > 0) {
+      touchStartY = e.touches[0].clientY;
+      touchActive = true;
+    }
+  };
+
+  const touchMoveHandler = (e: TouchEvent) => {
+    if (destroyed || !touchActive) return;
+    if (performance.now() < selfScrollUntil) return;
+    if (e.touches.length === 0) return;
+    const dy = Math.abs(e.touches[0].clientY - touchStartY);
+    if (dy > TOUCH_MOVE_THRESHOLD) {
+      touchActive = false; // only fire once per gesture
+      handleUserInteraction();
+    }
+  };
+
+  const touchEndHandler = () => {
+    touchActive = false;
+  };
+
   const keyHandler = (e: KeyboardEvent) => {
     if (
       [
@@ -220,12 +245,21 @@ export function createAutoScrollController(options: {
   };
 
   window.addEventListener("wheel", wheelHandler, { passive: true });
-  window.addEventListener("touchstart", touchHandler, { passive: true });
-  window.addEventListener("touchmove", touchHandler, { passive: true });
   window.addEventListener("keydown", keyHandler);
   window.addEventListener("resize", onResize, { passive: true });
   window.addEventListener("orientationchange", onResize, { passive: true });
   window.addEventListener("load", onLoad);
+
+  // Delay touch listeners so the envelope-opening tap doesn't bleed into this session.
+  // Listen on document for better iOS Safari reliability.
+  const touchAttachTimer = setTimeout(() => {
+    if (destroyed) return;
+    document.addEventListener("touchstart", touchStartHandler, { passive: true });
+    document.addEventListener("touchmove", touchMoveHandler, { passive: true });
+    document.addEventListener("touchend", touchEndHandler, { passive: true });
+    document.addEventListener("touchcancel", touchEndHandler, { passive: true });
+    touchListenersAttached = true;
+  }, 350);
 
   // Initial measure (DOM may still be settling — re-measure right before start too)
   measure();
@@ -241,12 +275,17 @@ export function createAutoScrollController(options: {
     if (idleTimer) clearTimeout(idleTimer);
     if (pauseTimer) clearTimeout(pauseTimer);
     if (interactionCoalesce) clearTimeout(interactionCoalesce);
+    clearTimeout(touchAttachTimer);
     window.removeEventListener("wheel", wheelHandler);
-    window.removeEventListener("touchstart", touchHandler);
-    window.removeEventListener("touchmove", touchHandler);
     window.removeEventListener("keydown", keyHandler);
     window.removeEventListener("resize", onResize);
     window.removeEventListener("orientationchange", onResize);
     window.removeEventListener("load", onLoad);
+    if (touchListenersAttached) {
+      document.removeEventListener("touchstart", touchStartHandler);
+      document.removeEventListener("touchmove", touchMoveHandler);
+      document.removeEventListener("touchend", touchEndHandler);
+      document.removeEventListener("touchcancel", touchEndHandler);
+    }
   };
 }
