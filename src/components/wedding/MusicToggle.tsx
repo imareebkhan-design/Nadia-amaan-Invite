@@ -49,10 +49,9 @@ const MusicToggle = ({ autoStart = false }: MusicToggleProps) => {
       onClick={toggle}
       className="fixed top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-11 md:h-11 rounded-full flex items-center justify-center cursor-pointer"
       style={{
-        background: "hsl(var(--wedding-cream) / 0.8)",
-        backdropFilter: "blur(12px)",
+        background: "hsl(var(--wedding-cream))",
         border: "1px solid hsl(var(--wedding-gold) / 0.3)",
-        boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+        boxShadow: "0 4px 16px rgba(0,0,0,0.12)",
       }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}

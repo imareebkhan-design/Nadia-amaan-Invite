@@ -77,10 +77,8 @@ const GlassPill = ({ text }: PillProps) => (
       style={{
         padding: "6px 14px",
         borderRadius: "40px",
-        background: "rgba(255,255,255,0.1)",
-        backdropFilter: "blur(8px)",
-        WebkitBackdropFilter: "blur(8px)",
-        border: "0.5px solid rgba(255,255,255,0.25)",
+        background: "rgba(255,255,255,0.18)",
+        border: "0.5px solid rgba(255,255,255,0.3)",
       }}
     >
       <div
@@ -99,24 +97,14 @@ const GlassPill = ({ text }: PillProps) => (
     </div>
 );
 
-/* Animated liquid glass blob */
+/* Static glow blob — no infinite animation, much cheaper to composite */
 const LiquidBlob = ({ className, style }: { className?: string; style: React.CSSProperties }) => (
-  <motion.div
+  <div
     className={`absolute rounded-full pointer-events-none ${className || ""}`}
     style={{
       filter: "blur(60px)",
+      opacity: 0.5,
       ...style,
-    }}
-    animate={{
-      scale: [1, 1.2, 0.95, 1.1, 1],
-      x: [0, 15, -10, 8, 0],
-      y: [0, -12, 8, -5, 0],
-      opacity: [0.4, 0.6, 0.35, 0.55, 0.4],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      ease: "easeInOut",
     }}
   />
 );
@@ -198,33 +186,30 @@ const WaleemaBlock = () => {
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            background: "rgba(255,255,255,0.12)",
-            backdropFilter: "blur(40px) saturate(1.8) brightness(1.1)",
-            WebkitBackdropFilter: "blur(40px) saturate(1.8) brightness(1.1)",
+            background:
+              "linear-gradient(135deg, rgba(40,55,45,0.55) 0%, rgba(30,45,35,0.65) 100%)",
             borderRadius: "28px",
-            border: "1px solid rgba(255,255,255,0.35)",
-            boxShadow: "0 8px 32px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -1px 0 rgba(255,255,255,0.1), 0 0 0 0.5px rgba(255,255,255,0.2)",
+            border: "1px solid rgba(255,255,255,0.28)",
+            boxShadow:
+              "0 8px 32px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.25)",
             padding: "32px 28px",
             position: "relative",
             overflow: "hidden",
           }}
         >
-          {/* Inner shimmer highlight */}
-          <motion.div
+          {/* Static shimmer highlight */}
+          <div
             className="absolute pointer-events-none"
             style={{
               top: "-30%",
               left: "-20%",
               width: "140%",
               height: "60%",
-              background: "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%)",
+              background:
+                "linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 50%)",
               borderRadius: "50%",
+              opacity: 0.3,
             }}
-            animate={{
-              opacity: [0.2, 0.35, 0.2],
-              rotate: [0, 2, 0],
-            }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />
 
           <p
@@ -293,9 +278,8 @@ const WaleemaBlock = () => {
                 width: "18px",
                 height: "18px",
                 borderRadius: "6px",
-                background: "rgba(255,255,255,0.1)",
-                backdropFilter: "blur(4px)",
-                border: "0.5px solid rgba(255,255,255,0.2)",
+                background: "rgba(255,255,255,0.18)",
+                border: "0.5px solid rgba(255,255,255,0.25)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
