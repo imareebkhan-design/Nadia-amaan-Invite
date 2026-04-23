@@ -86,6 +86,13 @@ export function createAutoScrollController(options: {
   let destroyed = false;
   let lastPassedSectionIndex = -1;
   let virtualY = 0;
+  // Mobile gesture tracking
+  let touchStartY = 0;
+  let touchActive = false;
+  const TOUCH_MOVE_THRESHOLD = 10; // px before a touch becomes a "scroll gesture"
+  // Self-scroll guard: ignore events caused by our own scrollTo
+  let selfScrollUntil = 0;
+  let touchListenersAttached = false;
 
   // Cached layout
   let sectionTops: number[] = [];
