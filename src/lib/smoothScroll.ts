@@ -152,6 +152,7 @@ export function createAutoScrollController(options: {
 
     virtualY += (speed * delta) / 1000;
     if (virtualY > maxScroll) virtualY = maxScroll;
+    selfScrollUntil = performance.now() + 100; // ignore touch/scroll events for ~100ms
     window.scrollTo(0, virtualY);
 
     rafId = requestAnimationFrame(scrollStep);
