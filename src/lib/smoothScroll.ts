@@ -7,6 +7,7 @@
  */
 
 let activeCancel: (() => void) | null = null;
+const PROGRAMMATIC_SCROLL_CLASS = "programmatic-scroll-active";
 
 function cancelActiveScroll() {
   if (activeCancel) {
@@ -23,6 +24,7 @@ export function smoothScrollTo(
   if (!target) return () => {};
 
   cancelActiveScroll();
+  document.documentElement.classList.add(PROGRAMMATIC_SCROLL_CLASS);
 
   const start = window.scrollY;
   const end = start + target.getBoundingClientRect().top;
@@ -38,11 +40,12 @@ export function smoothScrollTo(
     if (cancelled) return;
     if (!startTime) startTime = timestamp;
     const progress = Math.min((timestamp - startTime) / duration, 1);
-    window.scrollTo(0, start + distance * ease(progress));
+    window.scrollTo({ top: start + distance * ease(progress), left: 0, behavior: "auto" });
     if (progress < 1) {
       rafId = requestAnimationFrame(step);
     } else {
       activeCancel = null;
+      document.documentElement.classList.remove(PROGRAMMATIC_SCROLL_CLASS);
     }
   };
 
@@ -51,6 +54,7 @@ export function smoothScrollTo(
   const cancel = () => {
     cancelled = true;
     cancelAnimationFrame(rafId);
+    document.documentElement.classList.remove(PROGRAMMATIC_SCROLL_CLASS);
   };
   activeCancel = cancel;
   return cancel;
