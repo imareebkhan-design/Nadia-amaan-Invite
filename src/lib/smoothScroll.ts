@@ -88,8 +88,11 @@ export function createAutoScrollController(options: {
   let interactionCoalesce: ReturnType<typeof setTimeout> | null = null;
   let isScrolling = false;
   let destroyed = false;
+  let userInterrupted = false;
   let lastPassedSectionIndex = -1;
   let virtualY = 0;
+  let sectionEntryLock = -1;
+  const SECTION_THRESHOLD_BUFFER = 36;
   // Mobile gesture tracking
   let touchStartY = 0;
   let touchActive = false;
@@ -127,6 +130,7 @@ export function createAutoScrollController(options: {
     }
     isScrolling = false;
     lastTime = null;
+    document.documentElement.classList.remove(PROGRAMMATIC_SCROLL_CLASS);
   };
 
   const scrollStep = (timestamp: number) => {
@@ -143,9 +147,12 @@ export function createAutoScrollController(options: {
     const currentSectionIdx = getSectionIndexAt(virtualY);
     if (
       currentSectionIdx > lastPassedSectionIndex &&
-      lastPassedSectionIndex >= 0
+      lastPassedSectionIndex >= 0 &&
+      currentSectionIdx !== sectionEntryLock &&
+      virtualY + window.innerHeight * 0.6 >= sectionTops[currentSectionIdx] + SECTION_THRESHOLD_BUFFER
     ) {
       lastPassedSectionIndex = currentSectionIdx;
+      sectionEntryLock = currentSectionIdx;
       stopScrolling();
       pauseTimer = setTimeout(() => {
         if (!destroyed) startScrolling();
@@ -157,7 +164,7 @@ export function createAutoScrollController(options: {
     virtualY += (speed * delta) / 1000;
     if (virtualY > maxScroll) virtualY = maxScroll;
     selfScrollUntil = performance.now() + 100; // ignore touch/scroll events for ~100ms
-    window.scrollTo(0, virtualY);
+    window.scrollTo({ top: virtualY, left: 0, behavior: "auto" });
 
     rafId = requestAnimationFrame(scrollStep);
   };
@@ -168,6 +175,8 @@ export function createAutoScrollController(options: {
     virtualY = window.scrollY;
     lastPassedSectionIndex = getSectionIndexAt(virtualY);
     isScrolling = true;
+    userInterrupted = false;
+    document.documentElement.classList.add(PROGRAMMATIC_SCROLL_CLASS);
     lastTime = null;
     rafId = requestAnimationFrame(scrollStep);
   };
