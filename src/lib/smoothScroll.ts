@@ -194,6 +194,8 @@ export function createAutoScrollController(options: {
   // Coalesce bursts of wheel/touch events into a single reset
   const handleUserInteraction = () => {
     if (destroyed) return;
+    if (performance.now() < selfScrollUntil) return;
+    userInterrupted = true;
     if (isScrolling) stopScrolling();
     if (pauseTimer) {
       clearTimeout(pauseTimer);
@@ -207,6 +209,14 @@ export function createAutoScrollController(options: {
   };
 
   const wheelHandler = () => handleUserInteraction();
+
+  const scrollHandler = () => {
+    if (destroyed) return;
+    if (performance.now() < selfScrollUntil) return;
+    if (isScrolling && Math.abs(window.scrollY - virtualY) > 18) {
+      handleUserInteraction();
+    }
+  };
 
   const touchStartHandler = (e: TouchEvent) => {
     if (destroyed) return;
@@ -258,6 +268,7 @@ export function createAutoScrollController(options: {
   };
 
   window.addEventListener("wheel", wheelHandler, { passive: true });
+  window.addEventListener("scroll", scrollHandler, { passive: true });
   window.addEventListener("keydown", keyHandler);
   window.addEventListener("resize", onResize, { passive: true });
   window.addEventListener("orientationchange", onResize, { passive: true });
@@ -290,6 +301,7 @@ export function createAutoScrollController(options: {
     if (interactionCoalesce) clearTimeout(interactionCoalesce);
     clearTimeout(touchAttachTimer);
     window.removeEventListener("wheel", wheelHandler);
+    window.removeEventListener("scroll", scrollHandler);
     window.removeEventListener("keydown", keyHandler);
     window.removeEventListener("resize", onResize);
     window.removeEventListener("orientationchange", onResize);
